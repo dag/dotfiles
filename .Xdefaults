@@ -1,0 +1,17 @@
+URxvt.reverseVideo: true
+URxvt.loginShell: false
+URxvt.scrollBar: false
+URxvt.saveLines: 10000
+URxvt.geometry: 80x24
+URxvt.internalBorder: 0
+URxvt.perl-ext-common: default,matcher
+URxvt.urlLauncher: firefox
+URxvt.cursorUnderline: false
+URxvt.scrollTtyOutput: false
+URxvt.scrollTtyKeypress: true
+URxvt.scrollKey: true
+URxvt.scrollWithBuffer: false
+URxvt.transparent: true
+URxvt.shading: 40
+URxvt.font: xft:profont:pixelsize=12:
+URxvt.boldFont: xft:profont:pixelsize=12:
