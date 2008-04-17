@@ -1,0 +1,4 @@
+" 0.5.3 (created: 2007/12/21 19:26:07)
+set guioptions=b
+set visualbell
+" vim: set ft=vimperator:
