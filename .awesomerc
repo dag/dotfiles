@@ -459,14 +459,14 @@ keys {
     modkey = {"Mod4"}
     key = "a"
     command = "spawn"
-    arg = "exec sh -c \"$($HOME/bin/personal_status_menu.sh -nb '#101010' -nf '#dddddd' -sb '#282c28' -fn '-*-profont-*-*-*-*-8-*-*-*-*-*-*-*'; amazing -u 'top personal_status')\""
+    arg = "exec sh -c \"$($HOME/bin/personal_status_menu.sh status; amazing -u 'top personal_status')\""
   }
 
   key {
     modkey = {"Mod4"}
     key = "p"
     command = "spawn"
-    arg = "exec sh -c \"$(dmenu_path | dmenu -nb '#101010' -nf '#dddddd' -sb '#282c28' -fn '-*-profont-*-*-*-*-8-*-*-*-*-*-*-*')\""
+    arg = "dmenu_path | awesome-menu -e 'exec ' execute"
   }
 
   key {

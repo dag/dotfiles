@@ -1,12 +1,12 @@
 #!/bin/bash
 
 STATUS_FILE="$HOME/.personal_status"
-DMENU="dmenu"
+MENU="awesome-menu"
 WEECHAT="$HOME/.weechat"
 
 touch $STATUS_FILE
 
-STATUS="$((echo back; cat $STATUS_FILE) | $DMENU "$@")"
+STATUS="$((echo back; cat $STATUS_FILE) | $MENU "$@")"
 
 weechat_tell() {
   for fifo in $WEECHAT/weechat_fifo_*; do
