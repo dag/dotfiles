@@ -116,21 +116,21 @@ screen 0 {
       }
     }
 
-    emptybox left_to_cpuusage_icon {
+    emptybox left_to_cpu_usage_icon {
       width = 10
     }
 
-    iconbox cpuusage_icon {
+    iconbox cpu_usage_icon {
       image =  ".awesome/cpu.xbm.png"
       resize = false
       y = 4
     }
 
-    emptybox left_to_cpuusage {
+    emptybox left_to_cpu_usage {
       width = 3
     }
 
-    graph cpuusage {
+    graph cpu_usage {
       data one {
         fg = "#f8cc00"
       }
@@ -141,11 +141,11 @@ screen 0 {
       height = 0.5
     }
 
-    emptybox left_to_cpuusage_1 {
+    emptybox left_to_cpu_usage_1 {
       width = 3
     }
 
-    graph cpuusage1 {
+    graph cpu_usage1 {
       data one {
         fg = "#f8cc00"
       }
@@ -156,21 +156,21 @@ screen 0 {
       height = 0.5
     }
 
-    emptybox left_to_nettraffic_icon {
+    emptybox left_to_net_traffic_icon {
       width = 10
     }
 
-    iconbox nettraffic_icon {
+    iconbox net_traffic_icon {
       image =  ".awesome/net_down_03.xbm.png"
       resize = false
       y = 4
     }
 
-    emptybox left_to_nettraffic {
+    emptybox left_to_net_traffic {
       width = 3
     }
 
-    graph nettraffic {
+    graph net_traffic {
       data one {
         fg = "#f8cc00"
       }
@@ -187,21 +187,21 @@ screen 0 {
       }
     }
 
-    emptybox left_to_volume_icon {
+    emptybox left_to_alsa_icon {
       width = 10
     }
 
-    iconbox volume_icon {
+    iconbox alsa_icon {
       image =  ".awesome/spkr_01.xbm.png"
       resize = false
       y = 4
     }
 
-    emptybox left_to_volume {
+    emptybox left_to_alsa {
       width = 3
     }
 
-    progressbar volume {
+    progressbar alsa {
       data one {
         fg = "#f8cc00"
         bg = "#101010"
@@ -272,7 +272,7 @@ screen 0 {
       mouse {
         button = "1"
         command = "spawn"
-        arg = "exec urxvt -e sh -c 'sudo pacman -Su; amazing -utop\ pacman'"
+        arg = "exec urxvt -e sh -c 'sudo pacman -Su; amazing -u pacman/top/0'"
       }
     }
 
@@ -287,16 +287,16 @@ screen 0 {
       mouse {
         button = "1"
         command = "spawn"
-        arg = "exec urxvt -e sh -c 'sudo pacman -Su; amazing -utop\ pacman'"
+        arg = "exec urxvt -e sh -c 'sudo pacman -Su; amazing -u pacman/top/0'"
       }
     }
 
-    emptybox left_to_mail_icon {
+    emptybox left_to_gmail_icon {
       width = 10
       align = "right"
     }
 
-    iconbox mail_icon {
+    iconbox gmail_icon {
       align = "right"
       image =  ".awesome/mail.xbm.png"
       resize = false
@@ -309,12 +309,12 @@ screen 0 {
       }
     }
 
-    emptybox left_to_mail {
+    emptybox left_to_gmail {
       width = 3
       align = "right"
     }
 
-    textbox mail {
+    textbox gmail {
       align = "right"
 
       mouse {
@@ -324,16 +324,16 @@ screen 0 {
       }
     }
 
-    emptybox left_to_time {
+    emptybox left_to_clock {
       width = 30
       align = "right"
     }
 
-    textbox time {
+    textbox clock {
       align = "right"
     }
 
-    emptybox right_to_time {
+    emptybox right_to_clock {
       width = 30
       align = "right"
     }
@@ -459,7 +459,7 @@ keys {
     modkey = {"Mod4"}
     key = "a"
     command = "spawn"
-    arg = "exec sh -c \"$($HOME/bin/personal_status_menu.sh status; amazing -u 'top personal_status')\""
+    arg = "exec sh -c \"$($HOME/bin/personal_status_menu.sh status; amazing -u personal_status/top/0)\""
   }
 
   key {
@@ -708,14 +708,14 @@ keys {
     modkey = {"Mod4"}
     key = "Prior"
     command = "spawn"
-    arg = "sh -c 'amixer set Master 5%+; amazing -u \"top volume\"'"
+    arg = "sh -c 'amixer set Master 5%+; amazing -u alsa/top/0'"
   }
 
   key {
     modkey = {"Mod4"}
     key = "Next"
     command = "spawn"
-    arg = "sh -c 'amixer set Master 5%-; amazing -u \"top volume\"'"
+    arg = "sh -c 'amixer set Master 5%-; amazing -u alsa/top/0'"
   }
 }
 
