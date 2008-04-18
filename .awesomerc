@@ -408,6 +408,7 @@ rules {
   rule {
     name = "MPlayer"
     float = true
+    tags = "chat|dev|media"
   }
 }
 
