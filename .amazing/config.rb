@@ -61,7 +61,7 @@ awesome {
     set :file => ".personal_status"
 
     property("text") {
-      @last == "" ? "[!]" : @last
+      @last == "" ? "<!>" : @last
     }
   }
 
