@@ -1,5 +1,7 @@
 import "passwords.rb"
 
+BLINK = {}
+
 color = {
   :normal => "#dddddd",
   :urgent => "#ff0000"
@@ -66,10 +68,18 @@ awesome {
   }
 
   widget("pacman") {
-    property("text") { @default }
+    property("text") {
+      BLINK[@identifier] = @count > 0
+      @default
+    }
+  }
+
+  widget("pacman") {
+    set :module => :noop
+    set :interval => 1
 
     property("fg") {
-      if @count > 0
+      if BLINK[@identifier] && @iteration % 2 == 0
         color[:urgent]
       else
         color[:normal]
@@ -82,10 +92,18 @@ awesome {
     set :username => "dag.odenhall"
     set :password => GMAIL_PWD
 
-    property("text") { @default }
+    property("text") {
+      BLINK[@identifier] = @count > 0
+      @default
+    }
+  }
+
+  widget("gmail") {
+    set :module => :noop
+    set :interval => 1
 
     property("fg") {
-      if @count > 0
+      if BLINK[:gmail] && @iteration % 2 == 0
         color[:urgent]
       else
         color[:normal]
