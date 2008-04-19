@@ -1,5 +1,10 @@
 import "passwords.rb"
 
+color = {
+  :normal => "#dddddd",
+  :urgent => "#ff0000"
+}
+
 awesome {
   set :statusbar => "top"
 
@@ -60,12 +65,32 @@ awesome {
     }
   }
 
-  widget("pacman")
+  widget("pacman") {
+    property("text") { @default }
+
+    property("fg") {
+      if @count > 0
+        color[:urgent]
+      else
+        color[:normal]
+      end
+    }
+  }
 
   widget("gmail") {
     set :interval => 5.minutes
     set :username => "dag.odenhall"
     set :password => GMAIL_PWD
+
+    property("text") { @default }
+
+    property("fg") {
+      if @count > 0
+        color[:urgent]
+      else
+        color[:normal]
+      end
+    }
   }
 
   widget("clock") {
