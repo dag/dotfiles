@@ -211,7 +211,15 @@ screen 0 {
     }
 
     progressbar alsa {
-      data one {
+      data master {
+        fg = "#f8cc00"
+        fg_center = "#f8cc00"
+        fg_end = "#ff0000"
+        bg = "#101010"
+        bordercolor = "#282c28"
+      }
+
+      data pcm {
         fg = "#f8cc00"
         fg_center = "#f8cc00"
         fg_end = "#ff0000"
@@ -221,7 +229,7 @@ screen 0 {
 
       ticks_count = 5
       width = 25
-      height = 0.5
+      gap = 0
     }
 
     emptybox left_to_mpd_icon {

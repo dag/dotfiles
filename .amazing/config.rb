@@ -30,8 +30,14 @@ awesome {
   }
 
   widget("alsa") {
-    set :property => "data one"
+    set :property => "data master"
     set :interval => 1.minute
+  }
+
+  widget("alsa") {
+    set :property => "data pcm"
+    set :interval => 1.minute
+    set :mixer => "PCM"
   }
 
   widget("mpd") {
