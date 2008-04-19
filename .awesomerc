@@ -716,20 +716,6 @@ keys {
     command = "spawn"
     arg = "setxkbmap se"
   }
-
-  key {
-    modkey = {"Mod4"}
-    key = "Prior"
-    command = "spawn"
-    arg = "sh -c 'amixer set Master 5%+; amazing -u alsa/top/0'"
-  }
-
-  key {
-    modkey = {"Mod4"}
-    key = "Next"
-    command = "spawn"
-    arg = "sh -c 'amixer set Master 5%-; amazing -u alsa/top/0'"
-  }
 }
 
 # vim: filetype=conf shiftwidth=2 expandtab cindent

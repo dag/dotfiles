@@ -1,0 +1,5 @@
+"amixer set Master 15%-; amazing -u alsa/top/0"
+    m:0x0 + c:174
+ 
+"amixer set Master 15%+; amazing -u alsa/top/0"
+    m:0x0 + c:176
