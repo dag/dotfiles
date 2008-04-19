@@ -1,6 +1,6 @@
 import "passwords.rb"
 
-BLINK = {}
+blink = {}
 
 color = {
   :normal => "#dddddd",
@@ -75,7 +75,7 @@ awesome {
 
   widget("pacman") {
     property("text") {
-      BLINK[@identifier] = @count > 0
+      blink[@identifier] = @count > 0
       @default
     }
   }
@@ -85,7 +85,7 @@ awesome {
     set :interval => 1
 
     property("fg") {
-      if BLINK[@identifier] && @iteration % 2 == 0
+      if blink[@identifier] && @iteration % 2 == 0
         color[:urgent]
       else
         color[:normal]
@@ -98,7 +98,7 @@ awesome {
     set :interval => 1
 
     property("image") {
-      if BLINK["pacman"] && @iteration % 2 == 0
+      if blink["pacman"] && @iteration % 2 == 0
         ".awesome/pacman.xbm-red.png"
       else
         ".awesome/pacman.xbm.png"
@@ -112,7 +112,7 @@ awesome {
     set :password => GMAIL_PWD
 
     property("text") {
-      BLINK[@identifier] = @count > 0
+      blink[@identifier] = @count > 0
       @default
     }
   }
@@ -122,7 +122,7 @@ awesome {
     set :interval => 1
 
     property("fg") {
-      if BLINK[@identifier] && @iteration % 2 == 0
+      if blink[@identifier] && @iteration % 2 == 0
         color[:urgent]
       else
         color[:normal]
@@ -135,7 +135,7 @@ awesome {
     set :interval => 1
 
     property("image") {
-      if BLINK["gmail"] && @iteration % 2 == 0
+      if blink["gmail"] && @iteration % 2 == 0
         ".awesome/mail.xbm-red.png"
       else
         ".awesome/mail.xbm.png"
