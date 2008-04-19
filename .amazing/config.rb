@@ -103,7 +103,7 @@ awesome {
     set :interval => 1
 
     property("fg") {
-      if BLINK[:gmail] && @iteration % 2 == 0
+      if BLINK[@identifier] && @iteration % 2 == 0
         color[:urgent]
       else
         color[:normal]
