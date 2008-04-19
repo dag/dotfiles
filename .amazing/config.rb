@@ -87,6 +87,19 @@ awesome {
     }
   }
 
+  widget("pacman_icon") {
+    set :module => :noop
+    set :interval => 1
+
+    property("image") {
+      if BLINK["pacman"] && @iteration % 2 == 0
+        ".awesome/pacman.xbm-red.png"
+      else
+        ".awesome/pacman.xbm.png"
+      end
+    }
+  }
+
   widget("gmail") {
     set :interval => 5.minutes
     set :username => "dag.odenhall"
@@ -107,6 +120,19 @@ awesome {
         color[:urgent]
       else
         color[:normal]
+      end
+    }
+  }
+
+  widget("gmail_icon") {
+    set :module => :noop
+    set :interval => 1
+
+    property("image") {
+      if BLINK["gmail"] && @iteration % 2 == 0
+        ".awesome/mail.xbm-red.png"
+      else
+        ".awesome/mail.xbm.png"
       end
     }
   }
