@@ -208,6 +208,7 @@ screen 0 {
         bordercolor = "#282c28"
       }
 
+      ticks_count = 5
       width = 25
       height = 0.5
     }
