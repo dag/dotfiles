@@ -133,6 +133,9 @@ screen 0 {
     graph cpu_usage {
       data one {
         fg = "#f8cc00"
+        fg_center = "#f8cc00"
+        fg_end = "#ff0000"
+        vertical_gradient = true
       }
 
       bg = "#101010"
@@ -148,6 +151,9 @@ screen 0 {
     graph cpu_usage1 {
       data one {
         fg = "#f8cc00"
+        fg_center = "#f8cc00"
+        fg_end = "#ff0000"
+        vertical_gradient = true
       }
 
       bg = "#101010"
@@ -173,6 +179,9 @@ screen 0 {
     graph net_traffic {
       data one {
         fg = "#f8cc00"
+        fg_center = "#f8cc00"
+        fg_end = "#ff0000"
+        vertical_gradient = true
       }
 
       bg = "#101010"
@@ -204,6 +213,8 @@ screen 0 {
     progressbar alsa {
       data one {
         fg = "#f8cc00"
+        fg_center = "#f8cc00"
+        fg_end = "#ff0000"
         bg = "#101010"
         bordercolor = "#282c28"
       }
