@@ -1,11 +1,11 @@
 #!/bin/sh
 
 if ! screen -ls irc | grep -q 'There is a screen'; then
-  screen -d -m -U -S irc weechat-curses -a
+  screen -d -m -S irc weechat-curses -a
 fi
 
 if ! screen -ls p2p | grep -q 'There is a screen'; then
-  screen -d -m -U -S p2p rtorrent
+  screen -d -m -S p2p rtorrent
 fi
 
 xsetroot -bg 0
