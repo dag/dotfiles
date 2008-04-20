@@ -73,73 +73,24 @@ awesome {
     }
   }
 
-  widget("pacman") {
-    property("text") {
-      blink[@identifier] = @count > 0
-      @default
-    }
-  }
-
-  widget("pacman") {
-    set :module => :noop
-    set :interval => 1
-
-    property("fg") {
-      if blink[@identifier] && @iteration % 2 == 0
-        color[:urgent]
-      else
-        color[:normal]
-      end
-    }
-  }
-
-  widget("pacman_icon") {
-    set :module => :noop
-    set :interval => 1
-
-    property("image") {
-      if blink["pacman"] && @iteration % 2 == 0
-        ".awesome/pacman.xbm-red.png"
-      else
-        ".awesome/pacman.xbm.png"
-      end
-    }
-  }
+  widget("pacman")
 
   widget("gmail") {
-    set :interval => 5.minutes
+    set :interval => 1.minute
     set :username => "dag.odenhall"
     set :password => GMAIL_PWD
 
     property("text") {
-      blink[@identifier] = @count > 0
+      blink[@identifier] ||= []
+      if @count > 0
+        blink[@identifier] << IO.popen("bin/blink.rb 0.5 0 top #@identifier fg #{color[:urgent]} #{color[:normal]}")
+        blink[@identifier] << IO.popen("bin/blink.rb 0.5 0 top #{@identifier}_icon image .awesome/mail.xbm-red.png .awesome/mail.xbm.png")
+      else
+        blink[@identifier].each do |blinker|
+          Process.kill("SIGINT", blinker.pid)
+        end
+      end
       @default
-    }
-  }
-
-  widget("gmail") {
-    set :module => :noop
-    set :interval => 1
-
-    property("fg") {
-      if blink[@identifier] && @iteration % 2 == 0
-        color[:urgent]
-      else
-        color[:normal]
-      end
-    }
-  }
-
-  widget("gmail_icon") {
-    set :module => :noop
-    set :interval => 1
-
-    property("image") {
-      if blink["gmail"] && @iteration % 2 == 0
-        ".awesome/mail.xbm-red.png"
-      else
-        ".awesome/mail.xbm.png"
-      end
     }
   }
 
