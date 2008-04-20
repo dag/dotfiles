@@ -1,3 +1,6 @@
 # Ignore non-dotfiles
 /*
 !.*
+
+# Ignore these in any case
+.irb_history
