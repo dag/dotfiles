@@ -1,4 +1,3 @@
-URxvt.reverseVideo: true
 URxvt.loginShell: false
 URxvt.scrollBar: false
 URxvt.saveLines: 10000
@@ -15,3 +14,21 @@ URxvt.transparent: true
 URxvt.shading: 40
 URxvt.font: xft:profont:pixelsize=12:
 URxvt.boldFont: xft:profont:pixelsize=12:
+URxvt.background: #000000
+URxvt.foreground: #efefcf
+URxvt.color0: #000000
+URxvt.color1: #9e1828
+URxvt.color2: #aece92
+URxvt.color3: #968a38
+URxvt.color4: #414171
+URxvt.color5: #963c59
+URxvt.color6: #418179
+URxvt.color7: #bebebe
+URxvt.color8: #666666
+URxvt.color9: #cf6171
+URxvt.color10: #c5f779
+URxvt.color11: #fff796
+URxvt.color12: #4186be
+URxvt.color13: #cf9ebe
+URxvt.color14: #71bebe
+URxvt.color15: #ffffff
