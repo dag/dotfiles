@@ -29,8 +29,8 @@ if exists("b:current_syntax")
 endif
 
 syn match hgVer /\d\+/ contained
-syn match hgName /^\s\+\zs\S\+/ contained nextgroup=hgVer skipwhite
-syn match hgHead /^\s\+\S\+\s\+\d\+/ contains=hgName,hgVer
+syn match hgName /^\s*\zs\S\+/ contained nextgroup=hgVer skipwhite
+syn match hgHead /^\s*\S\+\s\+\d\+/ contains=hgName,hgVer
 
 if !exists("did_hgannotate_syntax_inits")
   let did_hgannotate_syntax_inits = 1

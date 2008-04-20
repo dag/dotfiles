@@ -3,7 +3,7 @@
 " Mercurial extension for VCSCommand. This extension is based on svn extension
 " to VCSCommand made by Bob Hiestand <bob.hiestand@gmail.com>
 "
-" Version:       2
+" Version:       1
 " Maintainer:    Vladimir Marek <vlmarek@volny.cz>
 " License:
 " Copyright (c) 2007 Vladimir Marek
@@ -30,18 +30,9 @@
 "
 " Command documentation {{{2
 "
-" The following command only applies to files under SCCS source control.
+" The following command only applies to files under Mercurial source control.
 "
-" Those functions are NOT implemented (yet?). Their implementation would differ
-" for using sccs or TeamWare. Current implementation has enough features to
-" support VCSVimDiff and VCSAnnotate
-"
-" Add
-" Delete
-" Lock
-" Revert
-" Unlock
-" Update
+" None currently
 "
 " Mapping documentation: {{{2
 "
@@ -56,9 +47,9 @@
 "
 " Options documentation: {{{2
 "
-" VCSCommandSCCSPath
-"   This variable specifies path to the sccs binaries. If not set, it defaults
-"   to empty string (which means use your $PATH). If set, it MUST end by slash
+" VCSCommandHGExec
+"   This variable specifies the Mercurial executable.  If not set, it defaults to
+"   'hg' executed from the user's executable path.
 
 if v:version < 700
   finish
@@ -66,7 +57,7 @@ endif
 
 " Section: Variable initialization {{{1
 
-let s:sccsFunctions = {}
+let s:hgFunctions = {}
 let s:pushdList = []
 
 " Section: Mercurial help functions {{{1
@@ -104,72 +95,75 @@ endfunction
 
 " Section: Utility functions {{{1
 
-" Function: s:DoCommand(binary, cmd, cmdName, statusText) {{{2
-" Wrapper to VCSCommandDoCommand to add the path to sccs tools
-function! s:DoCommand(binary, cmd, cmdName, statusText)
+" Function: s:DoCommand(cmd, cmdName, statusText) {{{2
+" Wrapper to VCSCommandDoCommand to add the name of the HG executable to the
+" command argument.
+function! s:DoCommand(cmd, cmdName, statusText)
   try
-    if VCSCommandGetVCSType(expand('%')) == 'SCCS'
-      let fullCmd = VCSCommandGetOption('VCSCommandSCCSPath', '') . a:binary . ' ' . a:cmd
+    if VCSCommandGetVCSType(expand('%')) == 'Mercurial'
+      let fullCmd = VCSCommandGetOption('VCSCommandHGExec', 'hg') . ' ' . a:cmd
       return VCSCommandDoCommand(fullCmd, a:cmdName, a:statusText, {})
     else
       throw 'No suitable plugin'
     endif
   catch /No suitable plugin/
-    echohl WarningMsg|echomsg 'Cannot apply SCCS commands to this file.'|echohl None
+    echohl WarningMsg|echomsg 'Cannot apply Mercurial commands to this file.'|echohl None
   endtry
 endfunction
 
 " Section: VCS function implementations {{{1
 
-" Function: s:sccsFunctions.Identify(buffer) {{{2
-function! s:sccsFunctions.Identify(buffer)
+" Function: s:hgFunctions.Identify(buffer) {{{2
+function! s:hgFunctions.Identify(buffer)
   let fileName = resolve(bufname(a:buffer))
   if isdirectory(fileName)
-    let directoryName = fileName
+    let directory = fileName
   else
-    let directoryName = fnamemodify(fileName, ':h')
+    let directory = fnamemodify(fileName, ':h')
   endif
-  if strlen(directoryName) > 0
-    let sccsDir = directoryName . '/SCCS'
-  else
-    let sccsDir = 'SCCS'
-  endif
-  if isdirectory(sccsDir)
-    return 1
-  else
+
+  call s:Pushd(directory)
+  let statusText=system(VCSCommandGetOption('VCSCommandHGExec', 'hg') . ' status -I .')
+  call s:Popd()
+  if v:shell_error != 0
     return 0
   endif
+  return 1
 endfunction
 
-" Function: s:sccsFunctions.Add() {{{2
-function! s:sccsFunctions.Add(argList)
-  echoerr "vcssccs: VCSAdd not implemented"
+" Function: s:hgFunctions.Add() {{{2
+function! s:hgFunctions.Add(argList)
+  return s:DoCommand(join(['add'] + a:argList, ' '), 'add', join(a:argList, ' '))
 endfunction
 
-" Function: s:sccsFunctions.Annotate(argList) {{{2
-function! s:sccsFunctions.Annotate(argList)
+" Function: s:hgFunctions.Annotate(argList) {{{2
+function! s:hgFunctions.Annotate(argList)
   let [originalBuffer, fileName, realFileName] = s:getToMyBuffer()
   try
     if len(a:argList) == 0
-      if &filetype == 'SCCSAnnotate'
+      if &filetype == 'HGAnnotate'
         " Perform annotation of the version indicated by the current line.
-        let l:revision = matchstr(getline('.'),'\v^\s*\zs\d+\.\d+')
+        let revision = matchstr(getline('.'),'\v^\s*\S*\s*\zs\d+')
       else
         if !exists('b:VCSCommandBufferInfo')
           call VCSCommandEnableBufferSetup()
         endif
         let l:revision = b:VCSCommandBufferInfo[0]
-        if l:revision == ''
-          throw 'vcssccs: Unable to obtain version information.'
+        if revision == ''
+          throw 'Unable to obtain version information.'
+        elseif revision == 'Unknown'        " XXX
+          throw 'File not under source control'
+        elseif revision == 'New'            " XXX
+          throw 'No annotatation available for new file.'
         endif
       endif
     else
-      let l:revision=a:argList[0]
+      let revision=a:argList[0]
     endif
 
-    let resultBuffer=s:DoCommand('sccs', 'get -p -m -s -r' . l:revision, 'annotate', l:revision) 
+    let resultBuffer=s:DoCommand('annotate -u -n -r ' . revision . ' "'. realFileName . '"', 'annotate', revision) 
     if resultBuffer > 0
-      set filetype=SCCSAnnotate
+      set filetype=HGAnnotate
     endif
     return resultBuffer
   finally
@@ -177,42 +171,33 @@ function! s:sccsFunctions.Annotate(argList)
   endtry
 endfunction
 
-" Function: s:sccsFunctions.Commit(argList) {{{2
-function! s:sccsFunctions.Commit(argList)
-"  This commits only first line :(
-"  return s:DoCommand("sccs", "deledit <" . a:argList[0] , 'commit', '')
-
-" This seems to work ok, but may depend on your shell ...
-  return s:DoCommand("sccs", "deledit -y\"$(cat " . a:argList[0] .")\"" , 'commit', '')
+" Function: s:hgFunctions.Commit(argList) {{{2
+function! s:hgFunctions.Commit(argList)
+  return s:DoCommand('commit -l "' . a:argList[0] . '"', 'commit', '')
 endfunction
 
-" Function: s:sccsFunctions.Delete() {{{2
-function! s:sccsFunctions.Delete(argList)
-  echoerr "vcssccs: VCSDelete not implemented"
+" Function: s:hgFunctions.Delete() {{{2
+function! s:hgFunctions.Delete(argList)
+  return s:DoCommand(join(['remove'] + a:argList, ' '), 'delete', join(a:argList, ' '))
 endfunction
 
-" 0 args - current file vs. last revision
-" 1 args - current file vs. revision REV
+" 0 args - current file
+" 1 args - current file revision REV
 " 2 args - current file revisions REV1 & REV2
-" Function: s:sccsFunctions.Diff(argList) {{{2
-function! s:sccsFunctions.Diff(argList)
-  if len(a:argList) == 1 " Compare working copy
-    let command = 'sccs'
-    let revOptions = 'diffs -r' . a:argList[0] . ' -u'
-    let caption = '(' . a:argList[0] . ' : working copy)'
+" Function: s:hgFunctions.Diff(argList) {{{2
+function! s:hgFunctions.Diff(argList)
+  if len(a:argList) == 1
+    let revOptions = ' -r' . a:argList[0]
+    let caption = '(' . a:argList[0] . ' : tip)' " XXX I'm not sure if tip fits
   elseif len(a:argList) == 2
-    let l:fileName = resolve(bufname(VCSCommandGetOriginalBuffer(bufnr('%'))))
-    let l:fileName = fnamemodify(l:fileName, ':p:h') . '/SCCS/s.'
-    let command = 'sccsdiff'
-    let revOptions = ' -r' . a:argList[0] . ' -r' . a:argList[1] . ' -u '.l:fileName.'<VCSCOMMANDFILE>'
+    let revOptions = ' -r ' . a:argList[0] . ' -r ' . a:argList[1]
     let caption = '(' . a:argList[0] . ' : ' . a:argList[1] . ')'
   else
-    let command = 'sccs'
-    let revOptions = 'diffs -u'
+    let revOptions = ''
     let caption = ''
   endif
 
-  let resultBuffer = s:DoCommand(command, revOptions , 'diff', caption)
+  let resultBuffer = s:DoCommand('diff' . revOptions , 'diff', caption)
   if resultBuffer > 0
     set filetype=diff
   else
@@ -221,32 +206,34 @@ function! s:sccsFunctions.Diff(argList)
   return resultBuffer
 endfunction
 
-" Function: s:sccsFunctions.GetBufferInfo() {{{2
+" Function: s:hgFunctions.GetBufferInfo() {{{2
 " Provides version control details for the current file.  Current version
 " number and current repository version number are required to be returned by
 " the vcscommand plugin.
 " Returns: List of results:  [revision, repository, branch]
 
-function! s:sccsFunctions.GetBufferInfo()
+function! s:hgFunctions.GetBufferInfo()
   let [originalBuffer, fileName, realFileName] = s:getToMyBuffer()
   try
-    let statusText=system(VCSCommandGetOption('VCSCommandSCCSPath', '') . 'sccs prt -y "' . realFileName . '"')
+    let statusText=system(VCSCommandGetOption('VCSCommandHGExec', 'hg') . ' status "' . realFileName . '"')
     if(v:shell_error)
       return []
     endif
 
-    " Error is returned above anyway
-    if statusText =~ ' nonexistent (ut4)'
+    " File not under Mercurial control.
+    if statusText =~ '^?'
       return ['Unknown']
     endif
 
-    " We can't have 'new', sccs create already commits the file
-"   if statusText =~ '^A'
-"     return ['New']
-"   endif
+    if statusText =~ '^A'
+      return ['New']
+    endif
 
-    let statusText=substitute(statusText, '^[^\t]*...', "", "")
-    let statusText=substitute(statusText, "\t.*", "", "")
+    let statusText=system(VCSCommandGetOption('VCSCommandHGExec', 'hg') . ' log -l 1 --template "{rev}" "' . realFileName . '"')
+    if(v:shell_error)
+      echoerr "Error running 'hg log' :".statusText
+      return []
+    endif
 
     return [statusText]
   finally
@@ -254,34 +241,36 @@ function! s:sccsFunctions.GetBufferInfo()
   endtry
 endfunction
 
-" Function: s:sccsFunctions.Lock(argList) {{{2
-function! s:sccsFunctions.Lock(argList)
-  echoerr "vcssccs: VCSLock not implemented"
-endfunction
+" Function: s:hgFunctions.Lock(argList) {{{2
+"function! s:hgFunctions.Lock(argList)
+"  return s:DoCommand(join(['lock'] + a:argList, ' '), 'lock', join(a:argList, ' '))
+"endfunction
 
-" 0 parameters - full log
-" 1 parameter - log of the given commit
-" Function: s:sccsFunctions.Log() {{{2
-function! s:sccsFunctions.Log(argList)
+" Function: s:hgFunctions.Log() {{{2
+function! s:hgFunctions.Log(argList)
   if len(a:argList) == 0
     let versionOption = ''
     let caption = ''
-  else
-    let versionOption=' -y' . a:argList[0]
+  elseif len(a:argList) == 1 && a:argList[0] !~ "^-"
+    let versionOption=' -r' . a:argList[0]
     let caption = a:argList[0]
+  else
+    " Multiple options, or the option starts with '-'
+    let caption = join(a:argList, ' ')
+    let versionOption = ' ' . caption
   endif
 
-  let resultBuffer=s:DoCommand('sccs', 'prt ' . versionOption, 'log', caption)
+  let resultBuffer=s:DoCommand('log' . versionOption, 'log', caption)
   return resultBuffer
 endfunction
 
-" Function: s:sccsFunctions.Revert(argList) {{{2
-function! s:sccsFunctions.Revert(argList)
-  echoerr "vcssccs: VCSRevert not implemented"
+" Function: s:hgFunctions.Revert(argList) {{{2
+function! s:hgFunctions.Revert(argList)
+  return s:DoCommand('revert', 'revert', '')
 endfunction
 
-" Function: s:sccsFunctions.Review(argList) {{{2
-function! s:sccsFunctions.Review(argList)
+" Function: s:hgFunctions.Review(argList) {{{2
+function! s:hgFunctions.Review(argList)
   if len(a:argList) == 0
     let versiontag = '(current)'
     let versionOption = ''
@@ -290,29 +279,28 @@ function! s:sccsFunctions.Review(argList)
     let versionOption = ' -r ' . versiontag . ' '
   endif
 
-  let resultBuffer = s:DoCommand('sccs', 'get -p -s -k' . versionOption, 'review', versiontag)
+  let resultBuffer = s:DoCommand('cat' . versionOption, 'review', versiontag)
   if resultBuffer > 0
     let &filetype=getbufvar(b:VCSCommandOriginalBuffer, '&filetype')
   endif
   return resultBuffer
 endfunction
 
-" Function: s:sccsFunctions.Status(argList) {{{2
-function! s:sccsFunctions.Status(argList)
-  return s:DoCommand('sccs', join(['sact'] + a:argList, ' '), 'status', join(a:argList, ' '))
+" Function: s:hgFunctions.Status(argList) {{{2
+function! s:hgFunctions.Status(argList)
+  return s:DoCommand(join(['status'] + a:argList, ' '), 'status', join(a:argList, ' '))
 endfunction
 
-" Function: s:sccsFunctions.Unlock(argList) {{{2
-function! s:sccsFunctions.Unlock(argList)
-  echoerr "vcssccs: VCSUnlock not implemented"
+" Function: s:hgFunctions.Unlock(argList) {{{2
+"function! s:hgFunctions.Unlock(argList)
+"  return s:DoCommand(join(['unlock'] + a:argList, ' '), 'unlock', join(a:argList, ' '))
+"endfunction
+" Function: s:hgFunctions.Update(argList) {{{2
+function! s:hgFunctions.Update(argList)
+  return s:DoCommand('update', 'update', '')
 endfunction
 
-" Function: s:sccsFunctions.Update(argList) {{{2
-function! s:sccsFunctions.Update(argList)
-  echoerr "vcssccs: VCSUpdate not implemented"
-endfunction
-
-" Section: SCCS-specific functions {{{1
+" Section: Mercurial-specific functions {{{1
 
 " Section: Command definitions {{{1
 " Section: Primary commands {{{2
@@ -321,12 +309,12 @@ endfunction
 
 " Section: Plugin command mappings {{{1
 
-let s:sccsExtensionMappings = {}
+let s:hgExtensionMappings = {}
 let mappingInfo = []
 for [pluginName, commandText, shortCut] in mappingInfo
   execute 'nnoremap <silent> <Plug>' . pluginName . ' :' . commandText . '<CR>'
   if !hasmapto('<Plug>' . pluginName)
-    let s:sccsExtensionMappings[shortCut] = commandText
+    let s:hgExtensionMappings[shortCut] = commandText
   endif
 endfor
 
@@ -337,9 +325,11 @@ endfor
 " If the vcscommand.vim plugin hasn't loaded, delay registration until it
 " loads.
 if exists('g:loaded_VCSCommand')
-  call VCSCommandRegisterModule('SCCS', expand('<sfile>'), s:sccsFunctions, s:sccsExtensionMappings)
+  call VCSCommandRegisterModule('Mercurial', expand('<sfile>'), s:hgFunctions, s:hgExtensionMappings)
 else
   augroup VCSCommand
-    au User VCSLoadExtensions call VCSCommandRegisterModule('SCCS', expand('<sfile>'), s:sccsFunctions, s:sccsExtensionMappings)
+    au User VCSLoadExtensions call VCSCommandRegisterModule('Mercurial', expand('<sfile>'), s:hgFunctions, s:hgExtensionMappings)
   augroup END
 endif
+
+""" TODO """

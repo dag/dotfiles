@@ -28,7 +28,7 @@ if exists("b:current_syntax")
   finish
 endif
 
-syn match sccsVer /^\d\+\.\d\+/
+syn match sccsVer /^\d\+\%(\.\d\+\)\{1,3}/
 
 if !exists("did_sccsannotate_syntax_inits")
   let did_sccsannotate_syntax_inits = 1
