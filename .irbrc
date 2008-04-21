@@ -1,3 +1,5 @@
+#!/usr/bin/env ruby
+
 $KCODE = "utf-8"
 
 def prefer lib
