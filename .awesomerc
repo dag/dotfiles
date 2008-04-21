@@ -219,17 +219,9 @@ screen 0 {
         bordercolor = "#282c28"
       }
 
-      data pcm {
-        fg = "#c5f779"
-        fg_center = "#c5f779"
-        fg_end = "#ff0000"
-        bg = "#101010"
-        bordercolor = "#282c28"
-      }
-
+      vertical = true
       ticks_count = 5
-      width = 25
-      gap = 0
+      width = 6
     }
 
     emptybox left_to_mpd_icon {
