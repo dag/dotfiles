@@ -103,6 +103,34 @@ zstyle ':completion:*:sudo:*' command-path $path
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
 zstyle ':completion:*:*:(^rm):*:*' ignored-pattern '*(.o|~)' '#*#(D)'
 
+compdef _gnu_generic abcde
+compdef _gnu_generic amazing
+compdef _gnu_generic awesome
+compdef _gnu_generic cryptsetup
+compdef _gnu_generic espeak
+compdef _gnu_generic fcrontab
+compdef _gnu_generic feh
+compdef _gnu_generic hdparm
+compdef _gnu_generic htop
+compdef _gnu_generic ivman
+compdef _gnu_generic lftp
+compdef _gnu_generic make
+compdef _gnu_generic mc
+compdef _gnu_generic mocp
+compdef _gnu_generic ncmpc
+compdef _gnu_generic raggle
+compdef _gnu_generic scrot
+compdef _gnu_generic sdparm
+compdef _gnu_generic slim
+compdef _gnu_generic trayer
+compdef _gnu_generic tree
+compdef _gnu_generic unclutter
+compdef _gnu_generic versionpkg
+compdef _gnu_generic weechat-curses
+compdef _gnu_generic whois
+compdef _gnu_generic xbindkeys
+compdef _gnu_generic yaourt
+
 HISTSIZE=1024
 SAVEHIST=$HISTSIZE
 HISTFILE=$HOME/.zsh_history
