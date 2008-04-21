@@ -20,11 +20,8 @@ screen 0 {
   }
 
   titlebar {
-    position = "left"
-    align = "auto"
-    width = 0
-    height = 0
-    text_align = "center"
+    position = "bottom"
+    text_align = "left"
   }
 
   general {
@@ -357,37 +354,6 @@ screen 0 {
         button = "5"
         command = "tag_setlayout"
         arg = "-1"
-      }
-    }
-  }
-
-  statusbar bottom {
-    position = "bottom"
-
-    tasklist mytasklist {
-      text_align = "center"
-      show_icons = false
-
-      mouse {
-        button = "4"
-        command = "client_focusnext"
-      }
-
-      mouse {
-        button = "5"
-        command = "client_focusprev"
-      }
-
-      mouse {
-        modkey = {"Mod4"}
-        button = "4"
-        command = "client_swapnext"
-      }
-
-      mouse {
-        modkey = {"Mod4"}
-        button = "5"
-        command = "client_swapprev"
       }
     }
   }
