@@ -11,16 +11,8 @@ awesome {
   set :statusbar => "top"
 
   widget("cpu_usage") {
-    set :property => "data one"
+    set :property => "data average"
     set :interval => 1
-    set :cpu => 1
-  }
-
-  widget("cpu_usage1") {
-    set :module => :cpu_usage
-    set :property => "data one"
-    set :interval => 1
-    set :cpu => 2
   }
 
   widget("net_traffic") {

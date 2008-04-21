@@ -131,25 +131,7 @@ screen 0 {
     }
 
     graph cpu_usage {
-      data one {
-        fg = "#c5f779"
-        fg_center = "#c5f779"
-        fg_end = "#ff0000"
-        vertical_gradient = true
-      }
-
-      bg = "#101010"
-      bordercolor = "#282c28"
-      width = 25
-      height = 0.5
-    }
-
-    emptybox left_to_cpu_usage_1 {
-      width = 3
-    }
-
-    graph cpu_usage1 {
-      data one {
+      data average {
         fg = "#c5f779"
         fg_center = "#c5f779"
         fg_end = "#ff0000"
