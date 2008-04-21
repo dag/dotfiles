@@ -19,4 +19,8 @@ unclutter -root -idle 1 &
 pkill ssh-agent
 eval `ssh-agent`
 
+if ! pgrep fastri-server; then
+  fastri-server &
+fi
+
 exec awesome
