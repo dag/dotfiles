@@ -23,4 +23,6 @@ if ! pgrep fastri-server; then
   fastri-server &
 fi
 
+xbindkeys &
+
 exec awesome
