@@ -1,4 +1,4 @@
-#!/usr/bin/env ruby
+#!ruby
 
 $KCODE = "utf-8"
 
