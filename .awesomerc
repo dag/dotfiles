@@ -2,13 +2,13 @@ screen 0 {
   styles {
     normal {
       font = "profont 8"
-      fg = "#dddddd"
+      fg = "#efefcf"
       bg = "#101010"
       border = "#282c28"
     }
 
     focus {
-      fg = "#dddddd"
+      fg = "#efefcf"
       bg = "#282c28"
       border = "#282c28"
     }
@@ -132,8 +132,8 @@ screen 0 {
 
     graph cpu_usage {
       data one {
-        fg = "#f8cc00"
-        fg_center = "#f8cc00"
+        fg = "#c5f779"
+        fg_center = "#c5f779"
         fg_end = "#ff0000"
         vertical_gradient = true
       }
@@ -150,8 +150,8 @@ screen 0 {
 
     graph cpu_usage1 {
       data one {
-        fg = "#f8cc00"
-        fg_center = "#f8cc00"
+        fg = "#c5f779"
+        fg_center = "#c5f779"
         fg_end = "#ff0000"
         vertical_gradient = true
       }
@@ -178,8 +178,8 @@ screen 0 {
 
     graph net_traffic {
       data one {
-        fg = "#f8cc00"
-        fg_center = "#f8cc00"
+        fg = "#c5f779"
+        fg_center = "#c5f779"
         fg_end = "#ff0000"
         vertical_gradient = true
       }
@@ -212,16 +212,16 @@ screen 0 {
 
     progressbar alsa {
       data master {
-        fg = "#f8cc00"
-        fg_center = "#f8cc00"
+        fg = "#c5f779"
+        fg_center = "#c5f779"
         fg_end = "#ff0000"
         bg = "#101010"
         bordercolor = "#282c28"
       }
 
       data pcm {
-        fg = "#f8cc00"
-        fg_center = "#f8cc00"
+        fg = "#c5f779"
+        fg_center = "#c5f779"
         fg_end = "#ff0000"
         bg = "#101010"
         bordercolor = "#282c28"

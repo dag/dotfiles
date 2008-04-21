@@ -3,7 +3,7 @@ import "passwords.rb"
 blink = {}
 
 color = {
-  :normal => "#dddddd",
+  :normal => "#efefcf",
   :urgent => "#ff0000"
 }
 
