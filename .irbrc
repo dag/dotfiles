@@ -1,3 +1,5 @@
+$KCODE = "utf-8"
+
 def prefer lib
   require lib
 rescue LoadError
