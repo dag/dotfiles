@@ -7,5 +7,5 @@ status-format = "[[%track%. ][%artist% - ]%title%]|[%shortfile%]"
 xterm-title-format = "[[%track%. ][%artist% - ]%title%]|[%shortfile%]"
 
 color background = none
-color list = yellow
+color list = grey
 color list-bold = brightyellow
