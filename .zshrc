@@ -43,6 +43,7 @@ alias install='sudo pacman -S'
 alias owns='pacman -Qo'
 alias pkginfo='pacman -Qi'
 alias pkgfiles='pacman -Ql'
+alias mocp='TERM=rxvt mocp'
 
 function set-title {
   [[ -t 1 ]] || return
