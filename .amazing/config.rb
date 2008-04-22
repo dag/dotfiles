@@ -69,8 +69,10 @@ awesome {
     property("text") {
       blink[@identifier] ||= []
       if @count > 0
-        blink[@identifier] << IO.popen("bin/blink.rb 0.5 0 top #@identifier fg #{color[:urgent]} #{color[:normal]}")
-        blink[@identifier] << IO.popen("bin/blink.rb 0.5 0 top #{@identifier}_icon image .awesome/mail.xbm-red.png .awesome/mail.xbm.png")
+        if blink[@identifier].empty?
+          blink[@identifier] << IO.popen("bin/blink.rb 0.5 0 top #@identifier fg #{color[:urgent]} #{color[:normal]}")
+          blink[@identifier] << IO.popen("bin/blink.rb 0.5 0 top #{@identifier}_icon image .awesome/mail.xbm-red.png .awesome/mail.xbm.png")
+        end
       else
         blink[@identifier].each do |blinker|
           Process.kill("SIGINT", blinker.pid)
