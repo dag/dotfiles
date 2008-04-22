@@ -491,15 +491,15 @@ keys {
   key {
     modkey = {"Mod4", "Control"}
     key = "j"
-    command = "screen_focus"
-    arg = "+1"
+    command = "client_moveresize"
+    arg = "+0 +20 +0 +0"
   }
 
   key {
     modkey = {"Mod4", "Control"}
     key = "k"
-    command = "screen_focus"
-    arg = "-1"
+    command = "client_moveresize"
+    arg = "+0 -20 +0 +0"
   }
 
   key {
@@ -533,15 +533,15 @@ keys {
   key {
     modkey = {"Mod4", "Control"}
     key = "h"
-    command = "tag_setncol"
-    arg = "+1"
+    command = "client_moveresize"
+    arg = "-20 +0 +0 +0"
   }
 
   key {
     modkey = {"Mod4", "Control"}
     key = "l"
-    command = "tag_setncol"
-    arg = "-1"
+    command = "client_moveresize"
+    arg = "+20 +0 +0 +0"
   }
 
   key {
