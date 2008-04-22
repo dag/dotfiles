@@ -98,6 +98,12 @@ function pastie {
   echo "$url"
 }
 
+function aurget {
+  cd ~/abs
+  wget "http://aur.archlinux.org/packages/$1/$1.tar.gz" -O - | tar xzf -
+  cd $1
+}
+
 function _force_rehash {
   (( CURRENT == 1 )) && rehash
   return 1
