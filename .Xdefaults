@@ -12,8 +12,8 @@ URxvt.scrollKey: true
 URxvt.scrollWithBuffer: false
 URxvt.transparent: true
 URxvt.shading: 40
-URxvt.font: xft:profont:pixelsize=12:
-URxvt.boldFont: xft:profont:pixelsize=12:
+URxvt.font: xft:terminus:pixelsize=12:
+URxvt.boldFont: xft:terminus:pixelsize=12:
 URxvt.background: #000000
 URxvt.foreground: #efefcf
 URxvt.color0: #000000

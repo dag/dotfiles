@@ -1,7 +1,7 @@
 screen 0 {
   styles {
     normal {
-      font = "profont 8"
+      font = "terminus 8"
       fg = "#efefcf"
       bg = "#101010"
       border = "#282c28"
