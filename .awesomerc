@@ -379,16 +379,6 @@ mouse {
     arg = "exec urxvt"
   }
 
-  root {
-    button = "4"
-    command = "tag_viewnext"
-  }
-
-  root {
-    button = "5"
-    command = "tag_viewprev"
-  }
-
   client {
     modkey = {"Mod4"}
     button = "1"
