@@ -120,7 +120,7 @@ screen 0 {
     iconbox cpu_usage_icon {
       image =  ".awesome/cpu.xbm.png"
       resize = false
-      y = 4
+      y = 5
     }
 
     emptybox left_to_cpu_usage {
@@ -148,7 +148,7 @@ screen 0 {
     iconbox net_traffic_icon {
       image =  ".awesome/net_down_03.xbm.png"
       resize = false
-      y = 4
+      y = 5
     }
 
     emptybox left_to_net_traffic {
@@ -182,7 +182,7 @@ screen 0 {
     iconbox alsa_icon {
       image =  ".awesome/spkr_01.xbm.png"
       resize = false
-      y = 4
+      y = 5
     }
 
     emptybox left_to_alsa {
@@ -210,7 +210,7 @@ screen 0 {
     iconbox mpd_icon {
       image =  ".awesome/note.xbm.png"
       resize = false
-      y = 4
+      y = 5
     }
 
     emptybox left_to_mpd {
@@ -237,7 +237,7 @@ screen 0 {
       align = "right"
       image =  ".awesome/clock.xbm.png"
       resize = false
-      y = 4
+      y = 5
     }
 
     emptybox left_to_personal_status {
@@ -258,7 +258,7 @@ screen 0 {
       align = "right"
       image =  ".awesome/pacman.xbm.png"
       resize = false
-      y = 4
+      y = 5
 
       mouse {
         button = "1"
@@ -291,7 +291,7 @@ screen 0 {
       align = "right"
       image =  ".awesome/mail.xbm.png"
       resize = false
-      y = 4
+      y = 5
 
       mouse {
         button = "1"
