@@ -1,0 +1,70 @@
+---
+:ask_for_subject: true
+:confirm_no_attachments: true
+:thread_by_subject: false
+:confirm_top_posting: true
+:edit_signature: false
+:discard_snippets_from_encrypted_messages: false
+:editor: /usr/bin/vim -f -c 'setlocal spell spelllang=en_us' -c 'set filetype=mail'
+:ask_for_cc: false
+:accounts:
+  :default:
+    :alternates: []
+
+    :sendmail: msmtp -t
+    :email: dag.odenhall@gmail.com
+    :signature: /home/dag/.signature
+    :name: Dag Odenhall
+:ask_for_bcc: false
+
+:colors:
+  :index_old:
+    :bg: default
+  :index_new:
+    :bg: default
+  :index_starred:
+    :bg: default
+  :index_draft:
+    :bg: default
+  :labellist_old:
+    :bg: default
+  :labellist_new:
+    :bg: default
+  :twiddle:
+    :bg: default
+  :label:
+    :bg: default
+  :attachment:
+    :bg: default
+  :cryptosig_valid:
+    :bg: default
+  :cryptosig_unknown:
+    :bg: default
+  :generic_notice_patina:
+    :bg: default
+  :quote_patina:
+    :bg: default
+  :sig_patina:
+    :bg: default
+  :quote:
+    :bg: default
+  :sig:
+    :bg: default
+  :to_me:
+    :bg: default
+  :starred:
+    :bg: default
+  :snippet:
+    :bg: default
+  :option:
+    :bg: default
+  :tagged:
+    :bg: default
+  :draft_notification:
+    :bg: default
+  :completion_character:
+    :bg: default
+  :horizontal_selector_selected:
+    :bg: default
+  :horizontal_selector_unselected:
+    :bg: default
