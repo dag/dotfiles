@@ -104,6 +104,12 @@ function aurget {
   cd $1
 }
 
+function git-push-all {
+  for remote in origin gitorious rubyforge orcz; do
+    git-push "$remote" "$@"
+  done
+}
+
 function _force_rehash {
   (( CURRENT == 1 )) && rehash
   return 1
