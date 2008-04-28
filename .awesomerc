@@ -282,12 +282,12 @@ screen 0 {
       }
     }
 
-    emptybox left_to_gmail_icon {
+    emptybox left_to_sup_icon {
       width = 10
       align = "right"
     }
 
-    iconbox gmail_icon {
+    iconbox sup_icon {
       align = "right"
       image =  ".awesome/mail.xbm.png"
       resize = false
@@ -296,22 +296,22 @@ screen 0 {
       mouse {
         button = "1"
         command = "spawn"
-        arg = "exec firefox http://mail.google.com/mail"
+        arg = "exec urxvt -e sh -c 'sup; amazing -u sup/top/0'"
       }
     }
 
-    emptybox left_to_gmail {
+    emptybox left_to_sup {
       width = 3
       align = "right"
     }
 
-    textbox gmail {
+    textbox sup {
       align = "right"
 
       mouse {
         button = "1"
         command = "spawn"
-        arg = "exec firefox http://mail.google.com/mail"
+        arg = "exec urxvt -e sh -c 'sup; amazing -u sup/top/0'"
       }
     }
 

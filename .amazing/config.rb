@@ -61,26 +61,7 @@ awesome {
 
   widget("pacman")
 
-  widget("gmail") {
-    set :interval => 1.minute
-    set :username => "dag.odenhall"
-    set :password => GMAIL_PWD
-
-    property("text") {
-      blink[@identifier] ||= []
-      if @count > 0
-        if blink[@identifier].empty?
-          blink[@identifier] << IO.popen("blink.rb 0.5 0 top #@identifier fg #{color[:urgent]} #{color[:normal]}")
-          blink[@identifier] << IO.popen("blink.rb 0.5 0 top #{@identifier}_icon image .awesome/mail.xbm-red.png .awesome/mail.xbm.png")
-        end
-      else
-        blink[@identifier].each do |blinker|
-          Process.kill("SIGINT", blinker.pid)
-        end
-      end
-      @default
-    }
-  }
+  widget("sup")
 
   widget("clock") {
     set :interval => 1
