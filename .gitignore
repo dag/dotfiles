@@ -5,3 +5,4 @@
 # Ignore these in any case
 .irb_history
 .zsh_history
+.netrc
