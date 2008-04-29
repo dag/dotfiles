@@ -1,0 +1,7 @@
+machine "pop.gmail.com"
+login "dag.odenhall@gmail.com"
+password ""
+
+machine "smtp.gmail.com"
+login "dag.odenhall@gmail.com"
+password ""
