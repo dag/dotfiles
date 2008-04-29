@@ -656,4 +656,4 @@ keys {
   }
 }
 
-# vim: filetype=conf shiftwidth=2 expandtab cindent
+# vim: ft=conf sw=2 et cin fdm=indent
