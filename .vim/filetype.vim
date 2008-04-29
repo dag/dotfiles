@@ -4,6 +4,7 @@ endif
 
 augroup markdown
   au! BufRead,BufNewFile *.mkd setfiletype mkd
+  au! BufRead,BufNewFile *.mkdn setfiletype mkd
   au! BufRead,BufNewFile *.markdown setfiletype mkd
 
 augroup textile
