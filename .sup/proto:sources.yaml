@@ -1,0 +1,53 @@
+--- 
+- !masanjin.net,2006-10-01/Redwood/Maildir 
+  uri: maildir:/home/dag/.mail/inbox
+  cur_offset: 
+  usual: true
+  archived: false
+  id: 1
+  labels: []
+
+- !masanjin.net,2006-10-01/Redwood/Maildir 
+  uri: maildir:/home/dag/.mail/amazing
+  cur_offset: 
+  usual: true
+  archived: false
+  id: 2
+  labels: 
+  - amazing
+  - mailing-list
+  - open-source
+- !masanjin.net,2006-10-01/Redwood/Maildir 
+  uri: maildir:/home/dag/.mail/awesome
+  cur_offset: 
+  usual: true
+  archived: true
+  id: 3
+  labels: 
+  - awesome
+  - mailing-list
+  - open-source
+- !masanjin.net,2006-10-01/Redwood/Maildir 
+  uri: maildir:/home/dag/.mail/sup
+  cur_offset: 
+  usual: true
+  archived: true
+  id: 4
+  labels: 
+  - sup
+  - mailing-list
+  - open-source
+- !masanjin.net,2006-10-01/Redwood/Maildir 
+  uri: maildir:/home/dag/.mail/liberakt
+  cur_offset: 
+  usual: true
+  archived: true
+  id: 5
+  labels: 
+  - liberakt
+  - mailing-list
+  - politics
+- !masanjin.net,2006-10-01/Redwood/SentLoader 
+  cur_offset: 0
+- !masanjin.net,2006-10-01/Redwood/DraftLoader 
+  cur_offset: 0
