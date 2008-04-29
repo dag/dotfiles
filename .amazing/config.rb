@@ -1,7 +1,3 @@
-import "passwords.rb"
-
-blink = {}
-
 color = {
   :normal => "#efefcf",
   :urgent => "#ff0000"
