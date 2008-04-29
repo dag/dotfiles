@@ -48,7 +48,7 @@ awesome {
 
   widget("personal_status") {
     set :module => :file
-    set :file => ".personal_status"
+    set :file => "~/.personal_status"
 
     property("text") {
       @last == "" ? h("<!>") : @last
