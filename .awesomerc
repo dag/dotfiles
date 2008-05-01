@@ -21,7 +21,7 @@ screen 0 {
 
   titlebar {
     position = "bottom"
-    text_align = "left"
+    align = "left"
   }
 
   general {
@@ -113,7 +113,7 @@ screen 0 {
       }
     }
 
-    emptybox left_to_cpu_usage_icon {
+    textbox left_to_cpu_usage_icon {
       width = 10
     }
 
@@ -123,7 +123,7 @@ screen 0 {
       y = 5
     }
 
-    emptybox left_to_cpu_usage {
+    textbox left_to_cpu_usage {
       width = 3
     }
 
@@ -141,7 +141,7 @@ screen 0 {
       height = 0.5
     }
 
-    emptybox left_to_net_traffic_icon {
+    textbox left_to_net_traffic_icon {
       width = 10
     }
 
@@ -151,7 +151,7 @@ screen 0 {
       y = 5
     }
 
-    emptybox left_to_net_traffic {
+    textbox left_to_net_traffic {
       width = 3
     }
 
@@ -175,7 +175,7 @@ screen 0 {
       }
     }
 
-    emptybox left_to_alsa_icon {
+    textbox left_to_alsa_icon {
       width = 10
     }
 
@@ -185,7 +185,7 @@ screen 0 {
       y = 5
     }
 
-    emptybox left_to_alsa {
+    textbox left_to_alsa {
       width = 3
     }
 
@@ -203,7 +203,7 @@ screen 0 {
       width = 6
     }
 
-    emptybox left_to_mpd_icon {
+    textbox left_to_mpd_icon {
       width = 10
     }
 
@@ -213,7 +213,7 @@ screen 0 {
       y = 5
     }
 
-    emptybox left_to_mpd {
+    textbox left_to_mpd {
       width = 3
     }
 
@@ -240,7 +240,7 @@ screen 0 {
       y = 5
     }
 
-    emptybox left_to_personal_status {
+    textbox left_to_personal_status {
       width = 3
       align = "right"
     }
@@ -249,7 +249,7 @@ screen 0 {
       align = "right"
     }
 
-    emptybox left_to_pacman_icon {
+    textbox left_to_pacman_icon {
       width = 10
       align = "right"
     }
@@ -267,7 +267,7 @@ screen 0 {
       }
     }
 
-    emptybox left_to_pacman {
+    textbox left_to_pacman {
       width = 3
       align = "right"
     }
@@ -282,7 +282,7 @@ screen 0 {
       }
     }
 
-    emptybox left_to_sup_icon {
+    textbox left_to_sup_icon {
       width = 10
       align = "right"
     }
@@ -300,7 +300,7 @@ screen 0 {
       }
     }
 
-    emptybox left_to_sup {
+    textbox left_to_sup {
       width = 3
       align = "right"
     }
@@ -315,7 +315,7 @@ screen 0 {
       }
     }
 
-    emptybox left_to_clock {
+    textbox left_to_clock {
       width = 30
       align = "right"
     }
@@ -324,7 +324,7 @@ screen 0 {
       align = "right"
     }
 
-    emptybox right_to_clock {
+    textbox right_to_clock {
       width = 30
       align = "right"
     }
@@ -450,13 +450,15 @@ keys {
   key {
     modkey = {"Mod4"}
     key = "j"
-    command = "client_focusnext"
+    command = "client_focus"
+    arg = "+1"
   }
 
   key {
     modkey = {"Mod4"}
     key = "k"
-    command = "client_focusprev"
+    command = "client_focus"
+    arg = "-1"
   }
 
   key {
