@@ -1,21 +1,14 @@
-color = {
-  :normal => "#efefcf",
-  :urgent => "#ff0000"
-}
-
 awesome {
   set :statusbar => "top"
 
-  widget("cpu_usage") {
-    set :property => "data average"
+  widget("clock") {
     set :interval => 1
+    set :format => "%T,  %a %b %d"
   }
+}
 
-  widget("net_traffic") {
-    set :property => "data one"
-    set :interval => 1
-    set :download_peak => 1200
-  }
+awesome {
+  set :statusbar => "bottom"
 
   widget("alsa") {
     set :property => "data master"
@@ -26,11 +19,7 @@ awesome {
     set :interval => 1
 
     property("text") {
-      if @state == :playing
-        @default
-      else
-        " "
-      end
+      @default if playing?
     }
   }
 
@@ -38,20 +27,7 @@ awesome {
     set :interval => 5
 
     property("text") {
-      if @state == :playing
-        @default
-      else
-        " "
-      end
-    }
-  }
-
-  widget("personal_status") {
-    set :module => :file
-    set :file => "~/.personal_status"
-
-    property("text") {
-      @last == "" ? h("<!>") : @last
+      @default if playing?
     }
   }
 
@@ -59,8 +35,15 @@ awesome {
 
   widget("sup")
 
-  widget("clock") {
+  widget("cpu_usage") {
+    set :module => :statgrab_cpu_usage
+    set :property => "data average"
     set :interval => 1
-    set :format => "%a %b %d      %T"
+  }
+
+  widget("net_traffic") {
+    set :property => "data one"
+    set :interval => 1
+    set :download_peak => 1200
   }
 }

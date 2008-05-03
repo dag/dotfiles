@@ -24,5 +24,6 @@ if ! pgrep fastri-server; then
 fi
 
 xbindkeys &
+urxvtd -o -f
 
 exec awesome

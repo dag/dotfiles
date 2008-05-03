@@ -19,11 +19,6 @@ screen 0 {
     }
   }
 
-  titlebar {
-    position = "bottom"
-    align = "left"
-  }
-
   general {
     resize_hints = false
   }
@@ -113,67 +108,30 @@ screen 0 {
       }
     }
 
-    textbox left_to_cpu_usage_icon {
-      width = 10
+    tasklist mytasklist {
+      show_icons = false
+      show = "focus"
+      text_focus = "  <title/>"
+      text_normal = "<bg color='#282c28'/>"
     }
 
-    iconbox cpu_usage_icon {
-      image =  ".awesome/cpu.xbm.png"
-      resize = false
-      y = 5
+    textbox left_to_clock {
+      align = "right"
+      width = 30
     }
 
-    textbox left_to_cpu_usage {
-      width = 3
+    textbox clock {
+      align = "right"
     }
 
-    graph cpu_usage {
-      data average {
-        fg = "#c5f779"
-        fg_center = "#c5f779"
-        fg_end = "#ff0000"
-        vertical_gradient = true
-      }
-
-      bg = "#101010"
-      bordercolor = "#282c28"
-      width = 25
-      height = 0.5
+    textbox right_to_clock {
+      align = "right"
+      width = 30
     }
+  }
 
-    textbox left_to_net_traffic_icon {
-      width = 10
-    }
-
-    iconbox net_traffic_icon {
-      image =  ".awesome/net_down_03.xbm.png"
-      resize = false
-      y = 5
-    }
-
-    textbox left_to_net_traffic {
-      width = 3
-    }
-
-    graph net_traffic {
-      data one {
-        fg = "#c5f779"
-        fg_center = "#c5f779"
-        fg_end = "#ff0000"
-        vertical_gradient = true
-      }
-
-      bg = "#101010"
-      bordercolor = "#282c28"
-      width = 25
-      height = 0.5
-
-      mouse {
-        button = "1"
-        command = "spawn"
-        arg = "exec urxvt -e screen -r p2p"
-      }
-    }
+  statusbar bottom {
+    position = "bottom"
 
     textbox left_to_alsa_icon {
       width = 10
@@ -221,7 +179,7 @@ screen 0 {
       mouse {
         button = "1"
         command = "spawn"
-        arg = "exec urxvt -e ncmpc"
+        arg = "exec urxvtc -e ncmpc"
       }
     }
 
@@ -229,24 +187,8 @@ screen 0 {
       mouse {
         button = "1"
         command = "spawn"
-        arg = "exec urxvt -e mocp"
+        arg = "exec urxvtc -e mocp"
       }
-    }
-
-    iconbox personal_status_icon {
-      align = "right"
-      image =  ".awesome/clock.xbm.png"
-      resize = false
-      y = 5
-    }
-
-    textbox left_to_personal_status {
-      width = 3
-      align = "right"
-    }
-
-    textbox personal_status {
-      align = "right"
     }
 
     textbox left_to_pacman_icon {
@@ -263,7 +205,7 @@ screen 0 {
       mouse {
         button = "1"
         command = "spawn"
-        arg = "exec urxvt -e sh -c 'sudo pacman -Su; amazing -u pacman/top/0'"
+        arg = "exec urxvtc -e sh -c 'sudo pacman -Su; amazing -u pacman/top/0'"
       }
     }
 
@@ -278,7 +220,7 @@ screen 0 {
       mouse {
         button = "1"
         command = "spawn"
-        arg = "exec urxvt -e sh -c 'sudo pacman -Su; amazing -u pacman/top/0'"
+        arg = "exec urxvtc -e sh -c 'sudo pacman -Su; amazing -u pacman/top/0'"
       }
     }
 
@@ -296,7 +238,7 @@ screen 0 {
       mouse {
         button = "1"
         command = "spawn"
-        arg = "exec urxvt -e sh -c 'sup; amazing -u sup/top/0'"
+        arg = "exec urxvtc -e sh -c 'sup; amazing -u sup/top/0'"
       }
     }
 
@@ -311,50 +253,83 @@ screen 0 {
       mouse {
         button = "1"
         command = "spawn"
-        arg = "exec urxvt -e sh -c 'sup; amazing -u sup/top/0'"
+        arg = "exec urxvtc -e sh -c 'sup; amazing -u sup/top/0'"
       }
     }
 
-    textbox left_to_clock {
-      width = 30
+    textbox left_to_cpu_usage_icon {
       align = "right"
+      width = 10
     }
 
-    textbox clock {
+    iconbox cpu_usage_icon {
       align = "right"
+      image =  ".awesome/cpu.xbm.png"
+      resize = false
+      y = 5
     }
 
-    textbox right_to_clock {
-      width = 30
+    textbox left_to_cpu_usage {
       align = "right"
+      width = 3
     }
 
-    layoutinfo mylayoutinfo {
+    graph cpu_usage {
+      data average {
+        fg = "#c5f779"
+        fg_center = "#c5f779"
+        fg_end = "#ff0000"
+        vertical_gradient = true
+      }
+
       align = "right"
+      bg = "#101010"
+      bordercolor = "#282c28"
+      width = 25
+      height = 0.5
+    }
+
+    textbox left_to_net_traffic_icon {
+      align = "right"
+      width = 10
+    }
+
+    iconbox net_traffic_icon {
+      align = "right"
+      image =  ".awesome/net_down_03.xbm.png"
+      resize = false
+      y = 5
+    }
+
+    textbox left_to_net_traffic {
+      align = "right"
+      width = 3
+    }
+
+    graph net_traffic {
+      data one {
+        fg = "#c5f779"
+        fg_center = "#c5f779"
+        fg_end = "#ff0000"
+        vertical_gradient = true
+      }
+
+      align = "right"
+      bg = "#101010"
+      bordercolor = "#282c28"
+      width = 25
+      height = 0.5
 
       mouse {
         button = "1"
-        command = "tag_setlayout"
-        arg = "+1"
+        command = "spawn"
+        arg = "exec urxvtc -e screen -r p2p"
       }
+    }
 
-      mouse {
-        button = "4"
-        command = "tag_setlayout"
-        arg = "+1"
-      }
-
-      mouse {
-        button = "3"
-        command = "tag_setlayout"
-        arg = "-1"
-      }
-
-      mouse {
-        button = "5"
-        command = "tag_setlayout"
-        arg = "-1"
-      }
+    textbox right_to_net_traffic {
+      align = "right"
+      width = 10
     }
   }
 }
@@ -376,7 +351,7 @@ mouse {
   root {
     button = "3"
     command = "spawn"
-    arg = "exec urxvt"
+    arg = "exec urxvtc"
   }
 
   client {
@@ -424,7 +399,7 @@ keys {
     modkey = {"Mod4"}
     key = "Return"
     command = "spawn"
-    arg = "exec urxvt"
+    arg = "exec urxvtc"
   }
 
   key {
