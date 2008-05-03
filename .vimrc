@@ -17,6 +17,8 @@ set visualbell
 set wildmenu
 set wrap
 
+match error /.\%>78v\|\s\+$/
+
 function RubyEndToken ()
   let current_line = getline( '.' )
   let braces_at_end = '{\s*\(|\(,\|\s\|\w\)*|\s*\)\?$'
