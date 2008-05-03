@@ -47,6 +47,7 @@ alias owns='pacman -Qo'
 alias pkginfo='pacman -Qi'
 alias pkgfiles='pacman -Ql'
 alias mocp='TERM=rxvt mocp'
+alias t='todo.sh -d ~/.todo/todorc'
 
 function set-title {
   [[ -t 1 ]] || return
