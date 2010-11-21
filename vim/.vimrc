@@ -54,8 +54,6 @@ set wildmenu
 set nomodeline
 set scrolloff=3
 set path=.,~,~/Documents/*
-set ignorecase
-set smartcase
 set autoindent
 set confirm
 set textwidth=75
