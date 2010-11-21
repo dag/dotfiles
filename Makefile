@@ -1,5 +1,7 @@
 .PHONY: vim
 vim:
-	@ln -s $(PWD)/vim/.vimrc $(PWD)/vim/.gvimrc ~
-	@mkdir -p ~/.vim/ftplugin/python
-	@ln -s $(PWD)/vim/.vim/ftplugin/python/pyflakes.vim ~/.vim/ftplugin/python
+	ln -fs $(PWD)/vim/.vimrc $(PWD)/vim/.gvimrc ~
+	mkdir -p ~/.vim
+	for target in $(PWD)/vim/.vim/*; do \
+		ln -fs "$$target" ~/.vim; \
+	done
