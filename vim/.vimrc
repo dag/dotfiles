@@ -20,6 +20,9 @@ Bundle "UltiSnips"
 Bundle "\L9"
 Bundle "FuzzyFinder"
 
+" Console Vim scheme
+set background=light
+colorscheme satori
 
 " Mappings for FuzzyFinder
 nnoremap <silent> sp :FufCoverageFileChange Python<CR>

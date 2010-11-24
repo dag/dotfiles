@@ -1,3 +1,4 @@
+set background=dark
 colorscheme mustang
 
 set guifont=Envy\ Code\ R\ 11
