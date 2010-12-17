@@ -23,6 +23,7 @@ Bundle "kate.vim"
 Bundle "guepardo.vim"
 Bundle "Warm-grey"
 Bundle "softlight.vim"
+Bundle "github-theme"
 
 " Filetypes
 Bundle "Python-2.x-Standard-Library-Reference"
@@ -32,7 +33,7 @@ Bundle "xml.vim"
 " Features
 Bundle "lodgeit.vim"
 Bundle "fugitive.vim"
-Bundle "SuperTab-continued."
+"Bundle "SuperTab-continued."
 Bundle "UltiSnips"
 Bundle "\L9"
 Bundle "FuzzyFinder"
