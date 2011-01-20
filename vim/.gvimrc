@@ -1,5 +1,5 @@
 set background=dark
-colorscheme warm_grey
+colorscheme mustang
 
 set guifont=Envy\ Code\ R\ 11
 set guioptions-=T

@@ -31,17 +31,19 @@ Bundle "python.vim"
 Bundle "xml.vim"
 
 " Features
+Bundle "pyflakes.vim"
 Bundle "lodgeit.vim"
 Bundle "fugitive.vim"
-"Bundle "SuperTab-continued."
+Bundle "SuperTab-continued."
 Bundle "UltiSnips"
 Bundle "\L9"
 Bundle "FuzzyFinder"
+Bundle "Conque-Shell"
 
 
 " Console Vim scheme
 set background=light
-colorscheme satori
+colorscheme trivial256
 
 
 " Mappings for FuzzyFinder
@@ -85,6 +87,7 @@ set cdpath=.,~,~/Documents
 set autoindent
 set confirm
 set textwidth=75
+set mouse=a
 
 " Folds
 set foldmethod=indent
