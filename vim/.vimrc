@@ -30,11 +30,12 @@ Bundle "Python-2.x-Standard-Library-Reference"
 Bundle "python.vim"
 Bundle "python.vim--Vasiliev"
 Bundle "pythoncomplete"
+Bundle "pyflakes.vim"
 Bundle "xml.vim"
 
 " Features
+Bundle "surround.vim"
 Bundle "VimPdb"
-Bundle "pyflakes.vim"
 Bundle "lodgeit.vim"
 Bundle "fugitive.vim"
 Bundle "SuperTab-continued."
@@ -42,6 +43,7 @@ Bundle "UltiSnips"
 Bundle "\L9"
 Bundle "FuzzyFinder"
 Bundle "Conque-Shell"
+Bundle "The-NERD-Commenter"
 
 
 " Console Vim scheme
@@ -71,8 +73,9 @@ autocmd FileType python setlocal complete+=k~/.vim/python-globals.txt
 filetype plugin indent on
 syntax on
 set omnifunc=syntaxcomplete#Complete
-set completeopt-=preview
+set completeopt=menu,menuone,longest
 runtime macros/matchit.vim
+let g:SuperTabDefaultCompletionType = "context"
 
 
 " Always use four spaces for tabs and indent
