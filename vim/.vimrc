@@ -28,9 +28,12 @@ Bundle "github-theme"
 " Filetypes
 Bundle "Python-2.x-Standard-Library-Reference"
 Bundle "python.vim"
+Bundle "python.vim--Vasiliev"
+Bundle "pythoncomplete"
 Bundle "xml.vim"
 
 " Features
+Bundle "VimPdb"
 Bundle "pyflakes.vim"
 Bundle "lodgeit.vim"
 Bundle "fugitive.vim"
@@ -48,16 +51,27 @@ colorscheme trivial256
 
 " Mappings for FuzzyFinder
 nnoremap <silent> sp :FufCoverageFileChange Python<CR>
+nnoremap <silent> sq :FufQuickfix<CR>
 nnoremap <silent> st :FufCoverageFileChange Templates<CR>
 nnoremap <silent> so :FufCoverageFileChange All<CR>
 nnoremap <silent> sj :FufBuffer<CR>
 nnoremap <silent> sd :FufDir ~/Documents/<CR>
 
 
+" Pyflakes makes its own quickfix list the active one on any edit
+let g:pyflakes_use_quickfix = 0
+
+" Other Python options
+let g:python_highlight_all = 1
+let g:python_slow_sync = 1
+autocmd FileType python setlocal complete+=k~/.vim/python-globals.txt
+
+
 " Load Skynet
 filetype plugin indent on
 syntax on
 set omnifunc=syntaxcomplete#Complete
+set completeopt-=preview
 runtime macros/matchit.vim
 
 
@@ -94,8 +108,8 @@ set foldmethod=indent
 set nofoldenable
 
 
-" Highlight long lines, whitespace ending lines, and tabs
-match SpellBad /.\%>79v\|\s\+$\|\t/
+" Highlight long lines
+match SpellBad /.\%>79v/
 
 
 " Misc mappings
