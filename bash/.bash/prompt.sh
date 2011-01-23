@@ -57,3 +57,10 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
 else # No color support
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
+
+# Title
+case "$TERM" in
+xterm*|rxvt*)
+    PS1="\[\e]0;\u@\h \w - Terminal\a\]$PS1"
+    ;;
+esac

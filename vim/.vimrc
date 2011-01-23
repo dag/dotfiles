@@ -54,7 +54,7 @@ colorscheme trivial256
 " Mappings for FuzzyFinder
 nnoremap <silent> sp :FufCoverageFileChange Python<CR>
 nnoremap <silent> sq :FufQuickfix<CR>
-nnoremap <silent> st :FufCoverageFileChange Templates<CR>
+nnoremap <silent> st :FufTag<CR>
 nnoremap <silent> so :FufCoverageFileChange All<CR>
 nnoremap <silent> sj :FufBuffer<CR>
 nnoremap <silent> sd :FufDir ~/Dokument/<CR>
