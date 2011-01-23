@@ -57,7 +57,7 @@ nnoremap <silent> sq :FufQuickfix<CR>
 nnoremap <silent> st :FufCoverageFileChange Templates<CR>
 nnoremap <silent> so :FufCoverageFileChange All<CR>
 nnoremap <silent> sj :FufBuffer<CR>
-nnoremap <silent> sd :FufDir ~/Documents/<CR>
+nnoremap <silent> sd :FufDir ~/Dokument/<CR>
 
 
 " Pyflakes makes its own quickfix list the active one on any edit
