@@ -36,7 +36,7 @@ Bundle "xml.vim"
 
 " Features
 Bundle "surround.vim"
-Bundle "VimPdb"
+"Bundle "VimPdb"
 Bundle "lodgeit.vim"
 Bundle "fugitive.vim"
 Bundle "SuperTab-continued."
@@ -107,9 +107,9 @@ set autoindent
 set confirm
 set textwidth=75
 set mouse=a
-set cursorline
-set cursorcolumn
-set relativenumber
+"set cursorline
+"set cursorcolumn
+"set relativenumber
 
 " Folds
 set foldmethod=indent
