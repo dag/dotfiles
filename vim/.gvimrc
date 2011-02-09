@@ -1,9 +1,10 @@
 set background=dark
-colorscheme mustang
+colorscheme neverland2-darker
 
-set guifont=Envy\ Code\ R\ 11
-set guioptions-=T
+set guifont=M+\ 1mn\ Medium\ 10
+set guioptions-=T guioptions-=m
 
 set number
-set columns=90
-set lines=25
+set relativenumber
+set columns=100
+set lines=30

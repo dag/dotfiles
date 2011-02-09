@@ -24,11 +24,12 @@ Bundle "guepardo.vim"
 Bundle "Warm-grey"
 Bundle "softlight.vim"
 Bundle "github-theme"
+Bundle "git://github.com/trapd00r/neverland-vim-theme.git"
 
 " Filetypes
 Bundle "Python-2.x-Standard-Library-Reference"
 Bundle "python.vim"
-Bundle "python.vim--Vasiliev"
+"Bundle "python.vim--Vasiliev"
 Bundle "pythoncomplete"
 Bundle "pyflakes.vim"
 Bundle "xml.vim"
@@ -44,11 +45,7 @@ Bundle "\L9"
 Bundle "FuzzyFinder"
 Bundle "Conque-Shell"
 Bundle "The-NERD-Commenter"
-
-
-" Console Vim scheme
-set background=light
-colorscheme trivial256
+Bundle "git://github.com/godlygeek/tabular.git"
 
 
 " Mappings for FuzzyFinder
@@ -78,6 +75,11 @@ runtime macros/matchit.vim
 let g:SuperTabDefaultCompletionType = "context"
 
 
+" Console Vim scheme
+set background=dark
+colorscheme neverland2-darker
+
+
 " Always use four spaces for tabs and indent
 set expandtab
 set shiftwidth=4
@@ -105,6 +107,9 @@ set autoindent
 set confirm
 set textwidth=75
 set mouse=a
+set cursorline
+set cursorcolumn
+set relativenumber
 
 " Folds
 set foldmethod=indent
