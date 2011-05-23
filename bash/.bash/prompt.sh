@@ -28,7 +28,7 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
     undwht='\e[4;37m' # White
     bakblk='\e[40m'   # Black - Background
     bakred='\e[41m'   # Red
-    badgrn='\e[42m'   # Green
+    bakgrn='\e[42m'   # Green
     bakylw='\e[43m'   # Yellow
     bakblu='\e[44m'   # Blue
     bakpur='\e[45m'   # Purple
@@ -36,31 +36,38 @@ if [ -x /usr/bin/tput ] && tput setaf 1 >&/dev/null; then
     bakwht='\e[47m'   # White
     txtrst='\e[00m'   # Text reset
 
-    export VCPROMPT_FORMAT="$(echo -e " %n:$bldylw%b$txtrst%m%u")"
+    # Title
+    case "$TERM" in
+    xterm*|rxvt*)
+        title='\[\e]0;\w$(vcprompt -f " (%n:%b%m%u)") - Terminal\a\]'
+        ;;
+    esac
 
-    _virtualenv() {
-        if [ -n "$VIRTUAL_ENV" ]; then
-            echo -e " env:$bldylw$(basename $VIRTUAL_ENV)$txtrst"
+    _exitstatus() {
+        if [ $1 -ne 0 ]; then
+            echo -e "\n$bldwht← $bldred$1$txtrst\n"
         fi
     }
 
-    user="\[$bldpur\]\u@\h\[$txtrst\]"
+    export VCPROMPT_FORMAT="$(echo -e " $txtgrn%n:$bldwht%b$txtgrn%m%u$txtrst")"
+
+    _virtualenv() {
+        if [ -n "$VIRTUAL_ENV" ]; then
+            echo -e " ${txtgrn}env:$bldwht$(basename $VIRTUAL_ENV)$txtrst"
+        fi
+    }
+
+    es='$(_exitstatus $?)'
+    user="\[$txtgrn\]\u@\h\[$txtrst\]"
     dir="\[$bldblu\]\w\[$txtrst\]"
     vcs='$(vcprompt)'
     env='$(_virtualenv)'
     prompt="\[$bldwht\]→\[$txtrst\] "
 
-    export PROMPT="\n$user $dir$vcs$env\n$prompt"
-
-    PS1="$PROMPT"
-    unset user dir vcs env prompt
+    PS1="$es$title$txtrst\n$user $dir$vcs$env\n$prompt"
+    unset title user dir vcs env es prompt
 else # No color support
     PS1='${debian_chroot:+($debian_chroot)}\u@\h:\w\$ '
 fi
 
-# Title
-case "$TERM" in
-xterm*|rxvt*)
-    PS1="\[\e]0;\u@\h \w - Terminal\a\]$PS1"
-    ;;
-esac
+PROMPT="$PS1"
