@@ -4,6 +4,6 @@ set guioptions-=r
 set guioptions-=L
 set guioptions-=m
 
-set number
+set relativenumber
 "set columns=100
 "set lines=25
