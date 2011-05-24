@@ -46,9 +46,9 @@ prompt_command() {
 }
 
 
-if tput setaf 1; then
+if tput setaf 1 &>/dev/null; then
   PROMPT_COMMAND="prompt_command"
-  PS1="$(writecode $bold $white →) "
+  PS1="\[$(writecode $bold $white '\]→\[')\] "
 else
   PS1="\u@\h \w\n→ "
 fi
