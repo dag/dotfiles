@@ -25,11 +25,15 @@ install_git() {
   linkfiles
 }
 
+install_python() {
+  linkfiles
+}
+
 
 if [ $# -eq 0 ]; then
-  echo "usage: ./install.sh [vim,bash,git]"
+  echo "usage: ./install.sh [vim,bash,git,python]"
 else
   cd $1
-  echo installing $1 configs
+  echo "installing $1 configs"
   eval "install_$1"
 fi
