@@ -21,9 +21,13 @@ install_bash() {
   linkfiles
 }
 
+install_git() {
+  linkfiles
+}
+
 
 if [ $# -eq 0 ]; then
-  echo usage: ./install.sh [vim,bash]
+  echo "usage: ./install.sh [vim,bash,git]"
 else
   cd $1
   echo installing $1 configs

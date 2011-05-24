@@ -1,0 +1,22 @@
+[user]
+name  = Dag Odenhall
+email = dag.odenhall@gmail.com
+
+[color]
+ui = auto
+
+[core]
+editor = gvim --nofork
+
+[alias]
+br = branch
+cf = config --global
+ci = commit
+co = checkout
+di = diff
+he = help
+lg = log
+pl = pull
+ps = push
+st = status
+sh = show
