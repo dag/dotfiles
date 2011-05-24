@@ -29,6 +29,8 @@ install_bash() {
 
 install_git() {
   linkfiles
+  curl http://defunkt.io/hub/standalone -sLo ~/.local/bin/hub
+  chmod +x ~/.local/bin/hub
 }
 
 install_python() {
