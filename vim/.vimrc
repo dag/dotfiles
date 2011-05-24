@@ -6,8 +6,9 @@ let mapleader = ','
 
 
 " Load Vundle for managing scripts
-set runtimepath+=~/.vim/vundle/
+set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
+Bundle 'gmarik/vundle'
 
 
 " Color schemes
@@ -16,8 +17,8 @@ Bundle 'Solarized'
 Bundle 'BusyBee'
 Bundle 'Sorcerer'
 Bundle 'Color-Sampler-Pack'
-Bundle 'git://github.com/trapd00r/neverland-vim-theme.git'
-Bundle 'git://github.com/fmeyer/vim-pigraph.git'
+Bundle 'trapd00r/neverland-vim-theme'
+Bundle 'fmeyer/vim-pigraph'
 
 Bundle 'neutron.vim'
 Bundle 'mayansmoke'
@@ -29,8 +30,8 @@ Bundle 'python.vim'
 Bundle 'pythoncomplete'
 Bundle 'xml.vim'
 Bundle 'genshi.vim'
-Bundle 'git://github.com/petdance/vim-perl.git'
-Bundle 'git://github.com/cakebaker/scss-syntax.vim.git'
+Bundle 'petdance/vim-perl'
+Bundle 'cakebaker/scss-syntax.vim'
 
 
 " Features
@@ -52,7 +53,7 @@ Bundle 'The-NERD-Commenter'
 Bundle 'The-NERD-tree'
 
 Bundle 'Conque-Shell'
-Bundle 'git://github.com/godlygeek/tabular.git'
+Bundle 'godlygeek/tabular'
 
 
 " Mappings for FuzzyFinder
