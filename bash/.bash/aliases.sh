@@ -11,5 +11,7 @@ alias open='gnome-open'
 alias ack='ack-grep'
 alias git='hub'
 alias g='git'
+alias e='gvim'
+alias gv='gvim'
 
 alias bpython='python $(which bpython)'
