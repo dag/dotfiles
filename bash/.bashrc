@@ -5,7 +5,11 @@ done
 source /etc/bash_completion
 source virtualenvwrapper.sh
 
-eval "$(pip completion --bash)"
-eval "$(jbo bashrc)"
+if [ ! -f /dev/shm/cache.sh ]; then
+  pip completion --bash >> /dev/shm/cache.sh
+  jbo bashrc            >> /dev/shm/cache.sh
+else
+  source /dev/shm/cache.sh
+fi
 
 clear
