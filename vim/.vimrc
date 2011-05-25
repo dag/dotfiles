@@ -12,17 +12,15 @@ Bundle 'gmarik/vundle'
 
 
 " Color schemes
-Bundle 'Zenburn'
 Bundle 'Solarized'
-Bundle 'BusyBee'
 Bundle 'Sorcerer'
-Bundle 'Color-Sampler-Pack'
-Bundle 'trapd00r/neverland-vim-theme'
+Bundle 'Zenburn'
 Bundle 'fmeyer/vim-pigraph'
+Bundle 'trapd00r/neverland-vim-theme'
 
-Bundle 'neutron.vim'
-Bundle 'mayansmoke'
 Bundle 'Warm-grey'
+Bundle 'mayansmoke'
+Bundle 'neutron.vim'
 
 
 " Filetypes
@@ -44,10 +42,11 @@ Bundle 'gitv'
 
 Bundle 'SuperTab-continued.'
 Bundle 'UltiSnips'
-Bundle 'L9'
 
+Bundle 'L9'
 Bundle 'FuzzyFinder'
 Bundle 'Command-T'
+Bundle 'unite.vim'
 
 Bundle 'The-NERD-Commenter'
 Bundle 'The-NERD-tree'
