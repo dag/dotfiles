@@ -12,12 +12,18 @@ linkfiles() {
 install_vim() {
   makedirs
   linkfiles
-  git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
-  ex '+BundleInstall!' '+quit'
+
+  if [ ! -d ~/.vim/bundle/vundle ]; then
+    git clone https://github.com/gmarik/vundle.git ~/.vim/bundle/vundle
+  fi
+
+  ex -u ~/.vim/bundles.vim '+BundleInstall' '+quit'
+
   cd ~/.vim/bundle/Command-T/ruby/command-t/
   ruby extconf.rb
   make
   cd
+
   python -c'import keyword;print "\n".join(keyword.kwlist+dir(__builtins__))' |
     sort | uniq > ~/.vim/python-globals.txt
 }
