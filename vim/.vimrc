@@ -27,11 +27,12 @@ au FileType python setl et sw=4 sts=4 ts=4
 au FileType python setl fdm=syntax fen
 
 
+
 " Load Skynet
 filetype plugin indent on
 syntax on
 set omnifunc=syntaxcomplete#Complete
-set completeopt=menu,menuone,longest
+set completeopt=menu
 runtime macros/matchit.vim
 let g:SuperTabDefaultCompletionType = "context"
 
