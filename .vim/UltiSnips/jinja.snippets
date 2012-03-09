@@ -1,0 +1,19 @@
+snippet % "Simple Statement"
+{% $1 %}$0
+endsnippet
+
+snippet %% "Block Statement"
+{% $1 $2 %}
+	$3
+{% end$1 %}
+$0
+endsnippet
+
+snippet $ "Expression"
+{{ $1 }}$0
+endsnippet
+
+snippet # "Comment"
+{# $1 #}
+$0
+endsnippet
