@@ -1,0 +1,28 @@
+[user]
+name = Dag Odenhall
+email = dag.odenhall@gmail.com
+
+[color]
+ui = auto
+
+[core]
+editor = gvim --nofork
+
+[alias]
+br = browse
+cf = config --global
+ci = commit
+cl = clone
+co = checkout
+dc = diff --cached
+di = diff
+he = help
+lg = log
+mr = merge
+pl = pull
+ps = push
+re = remote
+rs = reset --hard HEAD
+sh = show
+sl = log --graph --decorate --pretty=oneline --abbrev-commit
+st = status
