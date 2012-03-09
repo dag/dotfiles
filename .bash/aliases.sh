@@ -35,7 +35,7 @@ _cabal()
     COMPREPLY=( $( compgen -W "$( ${cmd[@]} )" -- $cur ) )
 }
 
-complete -F _cabal -o default cabal-dev cad
+complete -F _cabal -o default cabal-dev cab
 
 alias rm='trash-put'
 
