@@ -1,5 +1,12 @@
 snippet fun
 function! $1($2) " {{{
-  $0
+	$0
 endfunction " }}}
+endsnippet
+
+snippet au
+augroup ${1:Name}
+	auto!
+	auto ${2:Event} ${3:*} ${4:command}
+augroup END
 endsnippet

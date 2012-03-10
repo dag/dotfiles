@@ -325,6 +325,14 @@ augroup END
 let g:haddock_browser = 'xdg-open'
 let g:hpaste_author = 'donri'
 
+augroup Haskell
+  auto!
+  auto FileType haskell nnoremap <buffer> <silent> <leader>hi
+                          \ :Tabularize haskell_imports<CR>
+  auto FileType haskell vnoremap <buffer> <silent> <leader>hi
+                          \ :Tabularize haskell_imports<CR>
+augroup END
+
 " }}}
 
 " Make {{{
