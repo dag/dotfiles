@@ -220,7 +220,6 @@ match Error /\s\+$/
 match SpellBad /\t/
 
 let g:syntastic_check_on_open        = 1
-let g:syntastic_enable_signs         = 0
 let g:UltiSnipsDontReverseSearchPath = 1
 
 " }}}
@@ -231,6 +230,7 @@ augroup Workarounds
   auto!
   auto ColorScheme * filetype detect
   auto ColorScheme * highlight! link FoldColumn LineNr
+  auto ColorScheme * highlight! link SignColumn LineNr
   auto ColorScheme * highlight! link Conceal Operator
   auto ColorScheme * highlight! link NonText LineNr
 augroup END
@@ -254,6 +254,7 @@ function! s:InitGUI()
   set background=light
   colorscheme vylight
   highlight! link FoldColumn LineNr
+  highlight! link SignColumn LineNr
   highlight! link NonText LineNr
 
   augroup GUI
