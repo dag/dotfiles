@@ -219,8 +219,9 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 match Error /\s\+$/
 match SpellBad /\t/
 
-let g:syntastic_check_on_open = 1
-let g:syntastic_enable_signs  = 0
+let g:syntastic_check_on_open        = 1
+let g:syntastic_enable_signs         = 0
+let g:UltiSnipsDontReverseSearchPath = 1
 
 " }}}
 
