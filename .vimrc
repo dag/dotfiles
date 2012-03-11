@@ -41,6 +41,7 @@ Bundle 'lodgeit.vim'
 
 Bundle 'ervandew/supertab'
 Bundle 'godlygeek/tabular'
+Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdtree'
@@ -210,6 +211,7 @@ set showcmd
 set textwidth=75
 set undofile
 set wildmenu
+set wildignore=.*.*~,.*.sw?
 
 set ignorecase smartcase
 set gdefault
@@ -219,6 +221,8 @@ set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 match Error /\s\+$/
 match SpellBad /\t/
 
+let g:ctrlp_custom_ignore            = '\v%(\.git|_darcs|cabal-dev|dist)$'
+let g:ctrlp_working_path_mode        = 2
 let g:syntastic_check_on_open        = 1
 let g:UltiSnipsDontReverseSearchPath = 1
 
