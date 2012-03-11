@@ -108,6 +108,13 @@ nnoremap <silent> <leader>st :SyntasticToggleMode<CR>
 nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
 nnoremap <silent> <leader>li :setlocal wrap! list!<CR>
 
+nnoremap <silent> n nzz
+nnoremap <silent> N Nzz
+nnoremap <silent> * *zz
+nnoremap <silent> # #zz
+nnoremap <silent> g* g*zz
+nnoremap <silent> g# g#zz
+
 inoremap <C-A> <C-O>^
 inoremap <C-E> <C-O>$
 cnoremap <C-A> <Home>
