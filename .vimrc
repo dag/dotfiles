@@ -213,7 +213,7 @@ set textwidth=75
 set undofile
 set wildignore=.*.*~,.*.sw?
 set wildmenu
-set wildmode=longest,list
+set wildmode=list:longest,list:full
 
 set ignorecase smartcase
 set gdefault
