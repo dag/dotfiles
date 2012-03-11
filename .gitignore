@@ -1,4 +1,5 @@
 .*.sw?
+.swp
 .*.*~
 .bash/private.sh
 .vim/bundle
