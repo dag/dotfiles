@@ -4,7 +4,7 @@
 
 set nocompatible
 filetype off
-let mapleader = ','
+let mapleader = ' '
 let g:vundle_default_git_proto = 'git'
 
 " }}}
