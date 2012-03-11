@@ -211,9 +211,9 @@ set scrolloff=3
 set showcmd
 set textwidth=75
 set undofile
+set wildignore=.*.*~,.*.sw?
 set wildmenu
 set wildmode=longest,list
-set wildignore=.*.*~,.*.sw?
 
 set ignorecase smartcase
 set gdefault
