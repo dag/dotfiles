@@ -268,9 +268,7 @@ function! s:InitGUI()
 
   set background=light
   colorscheme vylight
-  highlight! link FoldColumn LineNr
-  highlight! link SignColumn LineNr
-  highlight! link NonText LineNr
+  doautocmd Workarounds ColorScheme
 
   augroup GUI
     auto!
