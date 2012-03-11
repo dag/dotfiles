@@ -38,6 +38,7 @@ Bundle 'AutoTag'
 Bundle 'FuzzyFinder'
 Bundle 'L9'
 Bundle 'lodgeit.vim'
+Bundle 'renamer.vim'
 
 Bundle 'ervandew/supertab'
 Bundle 'godlygeek/tabular'
