@@ -136,6 +136,7 @@ nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
 nnoremap <silent> <leader>/ :nohlsearch<cr>
+nnoremap <leader><leader> <c-^>
 
 " nnoremap <leader>b :FufBuffer<cr>
 " nnoremap <leader>d :FufDir<cr>
