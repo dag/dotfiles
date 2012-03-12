@@ -1,77 +1,27 @@
-" Bundles {{{
-
-" Initialize {{{
+" Vundle {{{
 
 set nocompatible
 filetype off
 let mapleader = ' '
 let g:vundle_default_git_proto = 'git'
-
-" }}}
-
-" Vundle {{{
-
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
-Bundle 'gmarik/vundle'
+runtime vundle.vim
 
-" }}}
+" }}} Vundle
 
-" Colorschemes {{{
 
-Bundle 'aerosol/vim-compot'
-Bundle 'altercation/vim-colors-solarized'
-Bundle 'Cleanroom'
-Bundle 'djjcast/mirodark'
-Bundle 'jnurmine/Zenburn'
-Bundle 'neutron.vim'
-Bundle 'noahfrederick/Hemisu'
-Bundle 'scottymoon/vim-twilight'
-Bundle 'vydark'
-Bundle 'vylight'
+" Terminal {{{
 
-" }}}
+if !has('gui_running')
+  let g:solarized_termcolors = 16
+  let g:solarized_termtrans = 1
+  set background=light
+  colorscheme solarized
+endif
 
-" Features {{{
+" }}} Terminal
 
-Bundle 'AutoTag'
-Bundle 'FuzzyFinder'
-Bundle 'L9'
-Bundle 'lodgeit.vim'
-Bundle 'renamer.vim'
-
-Bundle 'ervandew/supertab'
-Bundle 'godlygeek/tabular'
-Bundle 'kien/ctrlp.vim'
-Bundle 'mileszs/ack.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
-Bundle 'scrooloose/nerdtree'
-Bundle 'scrooloose/syntastic'
-Bundle 'SirVer/ultisnips'
-
-Bundle 'tpope/vim-commentary'
-Bundle 'tpope/vim-eunuch'
-Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-repeat'
-Bundle 'tpope/vim-rhubarb'
-Bundle 'tpope/vim-surround'
-Bundle 'tpope/vim-unimpaired'
-
-" }}}
-
-" Filetypes {{{
-
-Bundle 'hallison/vim-markdown'
-Bundle 'lukerandall/haskellmode-vim'
-Bundle 'pbrisbin/html-template-syntax'
-
-Bundle 'dag/vim2hs'
-
-" }}}
-
-" }}} Bundles
-
-" Preferences {{{
 
 " IDE {{{
 
@@ -84,29 +34,20 @@ let g:SuperTabDefaultCompletionType = "context"
 
 " }}}
 
+
 " Mappings {{{
 
-function! g:ToggleColorColumn() " {{{
-  if &colorcolumn != ''
-    setlocal colorcolumn&
-  else
-    setlocal colorcolumn=+1
-  endif
-endfunction " }}}
+" Toggles {{{
 
-function! g:ToggleRelativeNumber() " {{{
-  if &relativenumber
-    setlocal number
-  else
-    setlocal relativenumber
-  endif
-endfunction " }}}
-
-nnoremap <silent> <leader>cc :call g:ToggleColorColumn()<CR>
-nnoremap <silent> <leader>nu :call g:ToggleRelativeNumber()<CR>
+nnoremap <silent> <leader>cc :call toggle#colorcolumn()<CR>
+nnoremap <silent> <leader>nu :call toggle#relativenumber()<CR>
 nnoremap <silent> <leader>st :SyntasticToggleMode<CR>
 nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
 nnoremap <silent> <leader>li :setlocal wrap! list!<CR>
+
+" }}} Toggles
+
+" Search {{{
 
 nnoremap <silent> n nzz
 nnoremap <silent> N Nzz
@@ -114,6 +55,15 @@ nnoremap <silent> * *zz
 nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 nnoremap <silent> g# g#zz
+
+nnoremap / /\v
+vnoremap / /\v
+
+nnoremap <silent> <leader>/ :nohlsearch<cr>
+
+" }}} Search
+
+" Cmdline/Insert Mode {{{
 
 inoremap <C-A> <C-O>^
 inoremap <C-E> <C-O>$
@@ -124,19 +74,20 @@ cnoremap <C-N> <Down>
 inoremap <C-k> <C-O>D
 cnoremap <C-k> <C-\>e getcmdpos() == 1 ? '' : getcmdline()[:getcmdpos()-2]<CR>
 
-nnoremap / /\v
-vnoremap / /\v
+" }}} Cmdline/Insert Mode
 
-nnoremap j gj
-nnoremap k gk
+" Window Navigation {{{
 
 nnoremap <c-h> <c-w>h
 nnoremap <c-j> <c-w>j
 nnoremap <c-k> <c-w>k
 nnoremap <c-l> <c-w>l
 
-nnoremap <silent> <leader>/ :nohlsearch<cr>
 nnoremap <leader><leader> <c-^>
+
+" }}} Window Navigation
+
+" FuzzyFinder {{{
 
 " nnoremap <leader>b :FufBuffer<cr>
 " nnoremap <leader>d :FufDir<cr>
@@ -185,59 +136,128 @@ nnoremap <silent> sh     :FufHelp<CR>
 nnoremap <silent> se     :FufEditDataFile<CR>
 nnoremap <silent> sr     :FufRenewCache<CR>
 
+" }}} FuzzyFinder
+
+" Various {{{
+
+nnoremap j gj
+nnoremap k gk
+
 nnoremap <leader>gs :Gstatus<cr>
 
 nnoremap <leader>a :Tabularize<space>
 vnoremap <leader>a :Tabularize<space>
 
-nnoremap <leader>e :split $MYVIMRC<cr>
+nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>eg :split $MYGVIMRC<cr>
+nnoremap <leader>et :NERDTreeToggle ~/.vim<cr>
 
 call togglebg#map("<F5>")
 
-" }}}
+" }}} Various
+
+" }}} Mappings
+
 
 " Settings {{{
 
-" Use two spaces for default indentation
-set expandtab shiftwidth=2 softtabstop=2
+" Indentation {{{
+
+set expandtab
+set shiftwidth=2
+set softtabstop=2
+set autoindent
+
+" }}} Indentation
+
+" Wrapping {{{
 
 let &showbreak = '➥ '
-set autoindent
+set linebreak
+set wrap
+set textwidth=75
+
+" }}} Wrapping
+
+" Behavior {{{
+
 set autowriteall
 set confirm
-set fillchars=fold:·
-set foldcolumn=1
 set hidden
 set keywordprg=:help
-set linebreak
-set listchars=eol:¶,tab:»—,trail:!
 set modeline
 set mouse=a
-set numberwidth=5
 set path+=src
+set undofile
+
+" }}} Behavior
+
+" Interface {{{
+
+set fillchars=fold:·
+set listchars=eol:¶,tab:»—,trail:!
+set numberwidth=5
 set ruler
 set scrolloff=3
 set showcmd
-set textwidth=75
-set undofile
+
+match Error /\s\+$/
+match SpellBad /\t/
+
+" }}} Interface
+
+" Completion {{{
+
 set wildignore=.*.*~,.*.sw?
 set wildmenu
 set wildmode=list:longest,list:full
 
-set ignorecase smartcase
+" }}} Completion
+
+" Search {{{
+
 set gdefault
+set hlsearch
+set ignorecase
+set incsearch
+set showmatch
+set smartcase
 
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+" }}} Search
 
-match Error /\s\+$/
-match SpellBad /\t/
+" Plugins {{{
 
 let g:ctrlp_custom_ignore            = '\v%(\.git|_darcs|cabal-dev|dist)$'
 let g:ctrlp_working_path_mode        = 2
 let g:syntastic_check_on_open        = 1
 let g:UltiSnipsDontReverseSearchPath = 1
 
-" }}}
+set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+" }}} Plugins
+
+" Vimscript {{{
+
+let g:vim_indent_cont = &shiftwidth
+
+" }}} Vimscript
+
+" Python {{{
+
+let python_no_builtin_highlight = 1
+let python_space_error_highlight = 1
+
+" }}} Python
+
+" Haskell {{{
+
+let g:haddock_browser = 'xdg-open'
+let g:hpaste_author = 'donri'
+
+" }}} Haskell
+
+" }}} Settings
+
 
 " Workarounds {{{
 
@@ -250,123 +270,14 @@ augroup Workarounds
   auto ColorScheme * highlight! link NonText LineNr
 augroup END
 
-" }}}
+" }}} Workarounds
 
-" }}} Preferences
 
-" Environments {{{
+" Reloading {{{
 
-" GVim {{{
-
-set guioptions=aeg guiheadroom=0
-let &guifont = 'Ubuntu Mono 11'
-
-function! s:InitGUI()
-  set columns=90 lines=45
-  set relativenumber
-  set incsearch showmatch hlsearch
-
-  set background=light
-  colorscheme vylight
-  doautocmd Workarounds ColorScheme
-
-  augroup GUI
-    auto!
-
-    auto FocusLost * silent! wall
-
-    auto BufWinEnter,WinEnter,FocusGained * setlocal relativenumber
-    auto WinLeave,FocusLost               * setlocal number
-  augroup END
-endfunction
-
-augroup InitGUI
+augroup VIMRC
   auto!
-  auto GUIEnter * call s:InitGUI()
+  auto BufWritePost $MYVIMRC nested source $MYVIMRC
 augroup END
 
-" }}}
-
-" Terminal {{{
-
-if !has('gui_running')
-  let g:solarized_termcolors = 16
-  let g:solarized_termtrans = 1
-  set background=light
-  colorscheme solarized
-endif
-
-" }}}
-
-" }}} Environments
-
-" Filetypes {{{
-
-" Vimscript {{{
-
-let g:vim_indent_cont = &shiftwidth
-
-function! g:VimFoldText() " {{{
-  return matchstr(foldtext(), '.*\d lines\?: \zs.*')
-endfunction " }}}
-
-augroup Vim
-  auto!
-  auto FileType vim setlocal foldmethod=marker foldtext=g:VimFoldText()
-  auto FileType vim setlocal expandtab shiftwidth=2
-  auto BufWritePost $MYVIMRC source $MYVIMRC
-  auto BufWritePost $MYVIMRC if has('gui_running')
-  auto BufWritePost $MYVIMRC   call s:InitGUI()
-  auto BufWritePost $MYVIMRC endif
-augroup END
-
-" }}}
-
-" Python {{{
-
-let python_no_builtin_highlight = 1
-let python_space_error_highlight = 1
-
-augroup Python
-  auto!
-  auto FileType python setlocal expandtab shiftwidth=4 softtabstop=4
-augroup END
-
-" }}}
-
-" Haskell {{{
-
-let g:haddock_browser = 'xdg-open'
-let g:hpaste_author = 'donri'
-
-augroup Haskell
-  auto!
-  auto FileType haskell nnoremap <buffer> <silent> <leader>hi
-                          \ :Tabularize haskell_imports<CR>
-  auto FileType haskell vnoremap <buffer> <silent> <leader>hi
-                          \ :Tabularize haskell_imports<CR>
-augroup END
-
-" }}}
-
-" Make {{{
-
-augroup Make
-  auto!
-  auto FileType make match Normal /^\t+/
-augroup END
-
-" }}}
-
-" UltiSnips {{{
-
-augroup UltiSnips
-  auto!
-  auto BufNewFile,BufRead *.snippets setfiletype snippets
-  auto FileType snippets setlocal noexpandtab shiftwidth& softtabstop&
-  auto FileType snippets match Normal /^\t+/
-augroup END
-
-" }}}
-
-" }}} Filetypes
+" }}} Reloading
