@@ -183,8 +183,6 @@ set textwidth=75
 
 set autowriteall
 set confirm
-set foldclose=all
-set foldopen=all
 set hidden
 set keywordprg=:help
 set modeline
