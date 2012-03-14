@@ -63,6 +63,13 @@ nnoremap <silent> <leader>/ :nohlsearch<cr>
 
 " }}} Search
 
+" Pasting {{{
+
+nnoremap <silent> <F8> :set paste<cr>"+p:set nopaste<cr>
+inoremap <silent> <F8> <esc>:set paste<cr>"+p:set nopaste<cr>i
+
+" }}} Pasting
+
 " Cmdline/Insert Mode {{{
 
 inoremap <C-A> <C-O>^
