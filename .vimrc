@@ -66,7 +66,7 @@ nnoremap <silent> <leader>/ :nohlsearch<cr>
 " Pasting {{{
 
 nnoremap <silent> <F8> :set paste<cr>"+p:set nopaste<cr>
-inoremap <silent> <F8> <esc>:set paste<cr>"+p:set nopaste<cr>i
+inoremap <silent> <F8> <esc>:set paste<cr>"+p:set nopaste<cr>a
 
 " }}} Pasting
 
