@@ -47,6 +47,7 @@ Bundle 'tpope/vim-unimpaired'
 Bundle 'hallison/vim-markdown'
 Bundle 'lukerandall/haskellmode-vim'
 Bundle 'pbrisbin/html-template-syntax'
+Bundle 'ujihisa/neco-ghc'
 
 Bundle 'dag/vim2hs'
 
