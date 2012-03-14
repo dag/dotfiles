@@ -30,6 +30,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
+Bundle 'Shougo/vimproc'
 Bundle 'SirVer/ultisnips'
 
 Bundle 'tpope/vim-commentary'
@@ -44,8 +45,8 @@ Bundle 'tpope/vim-unimpaired'
 
 " Filetypes {{{
 
+Bundle 'eagletmt/ghcmod-vim'
 Bundle 'hallison/vim-markdown'
-Bundle 'lukerandall/haskellmode-vim'
 Bundle 'pbrisbin/html-template-syntax'
 Bundle 'ujihisa/neco-ghc'
 
