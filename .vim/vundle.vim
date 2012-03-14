@@ -52,3 +52,13 @@ Bundle 'ujihisa/neco-ghc'
 Bundle 'dag/vim2hs'
 
 " }}}
+
+
+" Reloading {{{
+
+augroup Vundle
+  auto!
+  auto BufWritePost ~/.vim/vundle.vim nested source ~/.vim/vundle.vim
+augroup END
+
+" }}} Reloading

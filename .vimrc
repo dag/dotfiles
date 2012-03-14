@@ -157,6 +157,7 @@ vnoremap <leader>a :Tabularize<space>
 
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>eg :split $MYGVIMRC<cr>
+nnoremap <leader>eb :split ~/.vim/vundle.vim<cr>
 nnoremap <leader>et :NERDTreeToggle ~/.vim<cr>
 
 call togglebg#map("<F5>")
