@@ -9,6 +9,8 @@ export PATH="$HOME/.cabal/bin:$PATH"
 export PATH="$HOME/.local/bin:$PATH"
 export PATH="cabal-dev/bin:$PATH"
 
+export MANPATH="$HOME/.local/share/man:$MANPATH"
+
 #export PYTHONSTARTUP="$HOME/.pythonrc"
 export VIRTUALENV_USE_DISTRIBUTE=True
 export VIRTUAL_ENV_DISABLE_PROMPT=True
