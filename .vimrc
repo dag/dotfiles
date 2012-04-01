@@ -237,9 +237,15 @@ set smartcase
 let g:ctrlp_custom_ignore            = '\v%(\.git|_darcs|cabal-dev|dist)$'
 let g:ctrlp_working_path_mode        = 2
 let g:syntastic_check_on_open        = 1
+let g:syntastic_stl_format           = ' %E{E:%fe }%W{W:%fw }'
 let g:UltiSnipsDontReverseSearchPath = 1
 
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+let &statusline = join([
+  \ '%<%f %h%m%r',
+  \ '%{fugitive#statusline()}',
+  \ '%=%-14.(%l,%c%V%) %P',
+  \ '%#ErrorMsg#%{SyntasticStatuslineFlag()}%*',
+  \ ])
 
 " }}} Plugins
 
