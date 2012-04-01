@@ -4,7 +4,7 @@ alias ls='ls --color=auto'
 alias grep='grep --color=auto'
 alias fgrep='fgrep --color=auto'
 alias egrep='egrep --color=auto'
-alias tree='tree -ACI "*.pyc"'
+alias tree='tree -AC -I "*.pyc|_darcs|cabal-dev|dist|state"'
 
 alias apt-get='sudo apt-get'
 
