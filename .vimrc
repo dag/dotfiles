@@ -234,7 +234,6 @@ set smartcase
 
 " Plugins {{{
 
-let g:ctrlp_working_path_mode        = 2
 let g:ctrlp_custom_ignore            = '\v%(\.git|_darcs|cabal-dev|dist|state)$'
 let g:ctrlp_working_path_mode        = 0
 let g:syntastic_check_on_open        = 1
