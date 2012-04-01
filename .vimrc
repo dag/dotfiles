@@ -209,6 +209,8 @@ set showcmd
 match Error /\s\+$/
 match SpellBad /\t/
 
+let g:changelog_spacing_errors = 0
+
 " }}} Interface
 
 " Completion {{{
