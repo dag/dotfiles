@@ -17,7 +17,6 @@ Bundle 'vylight'
 
 " Features {{{
 
-Bundle 'AutoTag'
 Bundle 'FuzzyFinder'
 Bundle 'L9'
 Bundle 'lodgeit.vim'

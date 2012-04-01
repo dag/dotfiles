@@ -281,6 +281,18 @@ augroup END
 " }}} Workarounds
 
 
+" Tricks {{{
+
+if executable('fast-tags')
+  augroup Haskell
+    auto!
+    auto BufWritePost *.hs silent !fast-tags %
+  augroup END
+endif
+
+" }}} Tricks
+
+
 " Reloading {{{
 
 augroup VIMRC
