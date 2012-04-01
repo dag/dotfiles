@@ -15,6 +15,17 @@ alias git='hub'
 alias g='git'
 complete -F _git g
 
+alias d='darcs'
+complete -F _darcs d
+
+function d-diff {
+  darcs diff --unified "$@" | pygmentize -l udiff | less
+}
+
+function d-log {
+  darcs changes --summary "$@" | gvim -R "+set filetype=changelog" - >/dev/null
+}
+
 alias mk='make -j3'
 alias m='make -j3'
 complete -F _make mk m
