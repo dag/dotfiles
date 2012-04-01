@@ -202,7 +202,6 @@ set undofile
 set fillchars=fold:·
 set laststatus=2
 set listchars=eol:¶,tab:»—,trail:!
-set numberwidth=5
 set ruler
 set scrolloff=3
 set showcmd
