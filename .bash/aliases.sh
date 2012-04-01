@@ -30,7 +30,7 @@ alias mk='make -j3'
 alias m='make -j3'
 complete -F _make mk m
 
-alias hlint='hlint -c'
+alias hlint='hlint -c -XXmlSyntax'
 alias hgl='hoogle search --color --count 10'
 alias yi='yi --as=vim'
 alias cab='cabal-dev'
