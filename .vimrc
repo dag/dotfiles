@@ -147,9 +147,6 @@ nnoremap <silent> sr     :FufRenewCache<CR>
 
 " Various {{{
 
-nnoremap j gj
-nnoremap k gk
-
 nnoremap <leader>gs :Gstatus<cr>
 
 nnoremap <leader>a :Tabularize<space>
