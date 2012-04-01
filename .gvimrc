@@ -30,6 +30,14 @@ augroup Focus
   auto FocusLost                        * silent! wall
   auto BufWinEnter,WinEnter,FocusGained * setlocal relativenumber
   auto WinLeave,FocusLost               * setlocal number
+
+  auto BufWinEnter,WinEnter,FocusGained,WinLeave,FocusLost
+    \ NERD_tree_* setlocal nonumber norelativenumber
+
+  auto BufWinEnter,WinEnter,FocusGained,WinLeave,FocusLost
+    \ * if &buftype == 'help'
+    \ |   setlocal nonumber norelativenumber foldcolumn=0
+    \ | endif
 augroup END
 
 " }}} Focus
