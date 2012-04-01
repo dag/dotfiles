@@ -278,7 +278,8 @@ augroup Workarounds
   auto!
   auto ColorScheme * filetype detect
   auto ColorScheme * highlight! link FoldColumn LineNr
-  auto ColorScheme * highlight! link SignColumn LineNr
+  auto ColorScheme * highlight! link Folded FoldColumn
+  auto ColorScheme * highlight! link SignColumn Normal
   auto ColorScheme * highlight! link Conceal Operator
   auto ColorScheme * highlight! link NonText LineNr
 augroup END
