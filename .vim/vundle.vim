@@ -29,6 +29,7 @@ Bundle 'mileszs/ack.vim'
 Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
+Bundle 'Shougo/unite.vim'
 Bundle 'Shougo/vimproc'
 Bundle 'SirVer/ultisnips'
 
