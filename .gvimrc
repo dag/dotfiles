@@ -10,7 +10,7 @@ set guiheadroom=0
 " Colorscheme {{{
 
 set background=light
-colorscheme vylight
+colorscheme solarized
 
 " }}} Colorscheme
 
