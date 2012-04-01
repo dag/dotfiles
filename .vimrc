@@ -200,6 +200,7 @@ set undofile
 " Interface {{{
 
 set fillchars=fold:·
+set laststatus=2
 set listchars=eol:¶,tab:»—,trail:!
 set numberwidth=5
 set ruler
