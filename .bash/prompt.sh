@@ -46,6 +46,12 @@ function prompt-command {
     print-with-colors $normal $green   " env:"
     print-with-colors $bold   $default "${VIRTUAL_ENV#$WORKON_HOME/}"
   fi
+
+  if [ -n "$VIRTHUALENV_NAME" ]; then
+    print-with-colors $normal $green   " ghc:"
+    print-with-colors $bold   $default "$VIRTHUALENV_NAME"
+  fi
+
   echo
 }
 
