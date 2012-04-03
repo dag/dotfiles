@@ -264,8 +264,9 @@ let python_space_error_highlight = 1
 
 " Haskell {{{
 
-let g:haddock_browser = 'xdg-open'
-let g:hpaste_author = 'donri'
+let g:haddock_browser  = 'xdg-open'
+let g:haskell_autotags = 1
+let g:hpaste_author    = 'donri'
 
 " }}} Haskell
 
@@ -285,18 +286,6 @@ augroup Workarounds
 augroup END
 
 " }}} Workarounds
-
-
-" Tricks {{{
-
-if executable('fast-tags')
-  augroup Haskell
-    auto!
-    auto BufWritePost *.hs silent !fast-tags %
-  augroup END
-endif
-
-" }}} Tricks
 
 
 " Reloading {{{
