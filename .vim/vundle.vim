@@ -22,7 +22,6 @@ Bundle 'L9'
 Bundle 'lodgeit.vim'
 Bundle 'renamer.vim'
 
-Bundle 'ervandew/supertab'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
