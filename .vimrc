@@ -269,6 +269,13 @@ let g:hpaste_author    = 'donri'
 
 " }}} Haskell
 
+" Shellscript {{{
+
+let g:is_bash         = 1
+let g:sh_fold_enabled = 1
+
+" }}} Shellscript
+
 " }}} Settings
 
 
