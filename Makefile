@@ -1,12 +1,16 @@
 PREFIX = $(HOME)
 
-all: bash git vim
+all: bash darcs git vim
 
 .PHONY: bash
 bash:
 	ln -bs "$(PWD)/.inputrc" "$(PREFIX)"
 	ln -bs "$(PWD)/.bashrc" "$(PREFIX)"
 	ln -bs "$(PWD)/.bash" "$(PREFIX)"
+
+.PHONY: darcs
+darcs:
+	ln -bs "$(PWD)/.darcs" "$(PREFIX)"
 
 .PHONY: git
 git:

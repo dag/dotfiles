@@ -1,0 +1,2 @@
+diff unified
+send sendmail-command msmtp -t %<
