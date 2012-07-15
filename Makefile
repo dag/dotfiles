@@ -1,6 +1,6 @@
 PREFIX = $(HOME)
 
-all: bash darcs git gtk vim
+all: bash darcs git gtk mkv vim
 
 .PHONY: bash
 bash:
@@ -23,6 +23,10 @@ git:
 gtk:
 	ln -bs "$(PWD)/.gtk-application-prefer-dark-theme" "$(PREFIX)"
 	ln -bs "$(PWD)/bin/gnome-terminal" "$(PREFIX)/.local/bin"
+
+.PHONY: mkv
+mkv:
+	ln -bs "$(PWD)/bin/mkvretitle" "$(PREFIX)/.local/bin"
 
 .PHONY: vim
 vim:

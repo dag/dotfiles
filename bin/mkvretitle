@@ -1,0 +1,9 @@
+#!/bin/bash
+
+retitle() {
+  local name="$1"
+  local title="$(basename "$name" .mkv)"
+  mkvpropedit -s "title=$title" "$name"
+}
+
+retitle "$@"
