@@ -5,5 +5,8 @@ set completion-ignore-case on
 set show-all-if-ambiguous on
 set match-hidden-files off
 
-"\e[5~": history-search-backward
-"\e[6~": history-search-forward
+"\e[A": history-search-backward
+"\e[B": history-search-forward
+
+"\e[5~": previous-history
+"\e[6~": next-history

@@ -32,6 +32,14 @@ set completeopt=menu
 runtime macros/matchit.vim
 let g:SuperTabDefaultCompletionType = "context"
 
+sign define SyntasticError
+  \ text=»» texthl=Error
+  \ icon=/home/dag/.icons/Faience/status/scalable/dialog-error-symbolic.svg
+
+sign define SyntasticWarning
+  \ text=»» texthl=Todo
+  \ icon=/home/dag/.icons/Faience/status/scalable/dialog-information-symbolic.svg
+
 " }}}
 
 
@@ -39,11 +47,13 @@ let g:SuperTabDefaultCompletionType = "context"
 
 " Toggles {{{
 
-nnoremap <silent> <leader>cc :call toggle#colorcolumn()<CR>
-nnoremap <silent> <leader>nu :call toggle#relativenumber()<CR>
-nnoremap <silent> <leader>st :SyntasticToggleMode<CR>
-nnoremap <silent> <leader>nt :NERDTreeToggle<CR>
-nnoremap <silent> <leader>li :setlocal wrap! list!<CR>
+nnoremap <silent> <leader>tcc :call toggle#colorcolumn()<CR>
+nnoremap <silent> <leader>tsp :setlocal spell!<CR>
+nnoremap <silent> <leader>tcu :setlocal cursorline! cursorcolumn!<CR>
+nnoremap <silent> <leader>tnu :call toggle#relativenumber()<CR>
+nnoremap <silent> <leader>tsy :SyntasticToggleMode<CR>
+nnoremap <silent> <leader>tne :NERDTreeToggle<CR>
+nnoremap <silent> <leader>tli :setlocal wrap! list!<CR>
 
 " }}} Toggles
 
@@ -56,8 +66,8 @@ nnoremap <silent> # #zz
 nnoremap <silent> g* g*zz
 nnoremap <silent> g# g#zz
 
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 
 nnoremap <silent> <leader>/ :nohlsearch<cr>
 
@@ -147,6 +157,9 @@ nnoremap <silent> sr     :FufRenewCache<CR>
 
 " Various {{{
 
+vnoremap <c-right> :s/^\s*\zs/ /<cr>:nohl<cr>gv
+vnoremap <c-left> :s/^\s*\zs\s//<cr>:nohl<cr>gv
+
 nnoremap <leader>gs :Gstatus<cr>
 
 nnoremap <leader>a :Tabularize<space>
@@ -157,7 +170,11 @@ nnoremap <leader>eg :split $MYGVIMRC<cr>
 nnoremap <leader>eb :split ~/.vim/vundle.vim<cr>
 nnoremap <leader>et :NERDTreeToggle ~/.vim<cr>
 
-call togglebg#map("<F5>")
+call togglebg#map('<F5>')
+
+nnoremap <silent> <F9> :write \| make \| vertical cwindow 80<cr>
+
+nnoremap gt <C-]>
 
 " }}} Various
 
@@ -179,7 +196,7 @@ set autoindent
 
 let &showbreak = '➥ '
 set linebreak
-set wrap
+set nowrap
 set textwidth=75
 
 " }}} Wrapping
@@ -192,22 +209,21 @@ set hidden
 set keywordprg=:help
 set modeline
 set mouse=a
+set path+=bin
 set path+=src
+set path+=test
 set undofile
 
 " }}} Behavior
 
 " Interface {{{
 
-set fillchars=fold:·
+set fillchars=
 set laststatus=2
 set listchars=eol:¶,tab:»—,trail:!
 set ruler
 set scrolloff=3
 set showcmd
-
-match Error /\s\+$/
-match SpellBad /\t/
 
 let g:changelog_spacing_errors = 0
 
@@ -215,7 +231,7 @@ let g:changelog_spacing_errors = 0
 
 " Completion {{{
 
-set wildignore=.*.*~,.*.sw?
+set wildignore=.*.*~,.*.sw?,.swp,*.hi,*.o
 set wildmenu
 set wildmode=list:longest,list:full
 
@@ -234,13 +250,16 @@ set smartcase
 
 " Plugins {{{
 
-let g:ctrlp_custom_ignore            = '\v%(\.git|_darcs|cabal-dev|dist|state)$'
+let g:ctrlp_custom_ignore            = '\v%(\.git|_darcs|cabal-dev|dist|state|tags)$'
 let g:ctrlp_working_path_mode        = 0
-let g:syntastic_stl_format           = ' %E{E:%fe }%W{W:%fw }'
+let g:syntastic_enable_highlighting  = 0
+let g:syntastic_stl_format           = '%E{ E:%fe }'
 let g:UltiSnipsDontReverseSearchPath = 1
+let NERDTreeIgnore                   = [g:ctrlp_custom_ignore]
 
 let &statusline = join([
   \ '%<%f %h%m%r',
+  \ '[%{pathshorten(substitute($PWD, "^" . $HOME, "~", ""))}]',
   \ '%{fugitive#statusline()}',
   \ '%=%-14.(%l,%c%V%) %P',
   \ '%#ErrorMsg#%{SyntasticStatuslineFlag()}%*',
@@ -263,9 +282,11 @@ let python_space_error_highlight = 1
 
 " Haskell {{{
 
-let g:haddock_browser  = 'xdg-open'
-let g:haskell_autotags = 1
-let g:hpaste_author    = 'donri'
+let g:haddock_browser          = 'xdg-open'
+let g:haskell_conceal_wide     = 1
+let g:haskell_autotags         = 1
+let g:haskell_tags_generator   = 'hasktags'
+let g:hpaste_author            = 'donri'
 
 " }}} Haskell
 
@@ -284,11 +305,15 @@ let g:sh_fold_enabled = 1
 augroup Workarounds
   auto!
   auto ColorScheme * filetype detect
+  auto ColorScheme * highlight! link CursorLineNr LineNr
+  auto ColorScheme * highlight! link Directory Typedef
   auto ColorScheme * highlight! link FoldColumn LineNr
   auto ColorScheme * highlight! link Folded FoldColumn
   auto ColorScheme * highlight! link SignColumn Normal
   auto ColorScheme * highlight! link Conceal Operator
-  auto ColorScheme * highlight! link NonText LineNr
+  auto ColorScheme * highlight! link NonText Comment
+  auto ColorScheme * highlight! link Todo Comment
+  auto ColorScheme * highlight! link MatchParen CursorColumn
 augroup END
 
 " }}} Workarounds

@@ -7,8 +7,11 @@ ui = auto
 
 [core]
 editor = gvim --nofork
+excludesfile = ~/.gitignore
 
 [alias]
+au = add --update
+bc = branch
 br = browse
 cf = config --global
 ci = commit
@@ -16,12 +19,15 @@ cl = clone
 co = checkout
 dc = diff --cached
 di = diff
+ed = commit --amend --allow-empty-message
 he = help
 lg = log
 mr = merge
 pl = pull
 ps = push
+rb = rebase
 re = remote
+ri = rebase -i
 rs = reset --hard HEAD
 rv = revert
 sh = show

@@ -2,7 +2,7 @@ function! toggle#colorcolumn() " {{{
   if &colorcolumn != ''
     setlocal colorcolumn&
   else
-    setlocal colorcolumn=+1
+    setlocal colorcolumn=80,120
   endif
 endfunction " }}}
 

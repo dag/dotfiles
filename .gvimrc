@@ -1,7 +1,7 @@
 " GUI {{{
 
-let &guifont = 'Ubuntu Mono 11'
-set guioptions=aeg
+let &guifont = 'Monofur 12'
+set guioptions=aceg
 set guiheadroom=0
 
 " }}} GUI
@@ -10,7 +10,7 @@ set guiheadroom=0
 " Colorscheme {{{
 
 set background=light
-colorscheme solarized
+colorscheme vylight
 
 " }}} Colorscheme
 
@@ -32,10 +32,7 @@ augroup Focus
   auto WinLeave,FocusLost               * setlocal number
 
   auto BufWinEnter,WinEnter,FocusGained,WinLeave,FocusLost
-    \ NERD_tree_* setlocal nonumber norelativenumber
-
-  auto BufWinEnter,WinEnter,FocusGained,WinLeave,FocusLost
-    \ * if &buftype == 'help'
+    \ * if &buftype !=# ''
     \ |   setlocal nonumber norelativenumber foldcolumn=0
     \ | endif
 augroup END

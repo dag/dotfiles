@@ -10,6 +10,10 @@ alias apt-get='sudo apt-get'
 
 alias open='xdg-open'
 alias e='gvim'
+alias l='less'
+
+alias y='sudo yum'
+complete -F _yum y
 
 alias git='hub'
 alias g='git'
@@ -18,7 +22,11 @@ complete -F _git g
 alias d='darcs'
 complete -F _darcs d
 
-function d-diff {
+function d-wh {
+  darcs whatsnew --unified "$@" | pygmentize -l udiff | less
+}
+
+function d-di {
   darcs diff --unified "$@" | pygmentize -l udiff | less
 }
 
@@ -27,13 +35,13 @@ function d-log {
 }
 
 alias mk='make -j3'
-alias m='make -j3'
+alias m='mk'
 complete -F _make mk m
 
 alias hlint='hlint -c -XXmlSyntax'
 alias hgl='hoogle search --color --count 10'
 alias yi='yi --as=vim'
-alias cab='cabal-dev'
+alias c='PATH=$PWD/cabal-dev/bin:$PATH cabal-dev'
 
 _cabal()
 {
@@ -46,7 +54,7 @@ _cabal()
     COMPREPLY=( $( compgen -W "$( ${cmd[@]} )" -- $cur ) )
 }
 
-complete -F _cabal -o default cabal-dev cab
+complete -F _cabal -o default cabal-dev c
 
 alias rm='trash-put'
 

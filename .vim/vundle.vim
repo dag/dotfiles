@@ -1,31 +1,29 @@
 Bundle 'gmarik/vundle'
 
+
 " Colorschemes {{{
 
 Bundle 'aerosol/vim-compot'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'Cleanroom'
 Bundle 'djjcast/mirodark'
-Bundle 'jnurmine/Zenburn'
 Bundle 'neutron.vim'
 Bundle 'noahfrederick/Hemisu'
-Bundle 'scottymoon/vim-twilight'
 Bundle 'vydark'
 Bundle 'vylight'
 
 " }}}
 
+
 " Features {{{
 
 Bundle 'FuzzyFinder'
 Bundle 'L9'
-Bundle 'lodgeit.vim'
 Bundle 'renamer.vim'
 
+Bundle 'Bogdanp/quicksilver.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
-Bundle 'nathanaelkane/vim-indent-guides'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'Shougo/unite.vim'
@@ -42,11 +40,11 @@ Bundle 'tpope/vim-unimpaired'
 
 " }}}
 
+
 " Filetypes {{{
 
 Bundle 'eagletmt/ghcmod-vim'
 Bundle 'hallison/vim-markdown'
-Bundle 'pbrisbin/html-template-syntax'
 Bundle 'ujihisa/neco-ghc'
 
 Bundle 'dag/vim2hs'

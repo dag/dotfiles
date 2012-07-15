@@ -52,6 +52,11 @@ function prompt-command {
     print-with-colors $bold   $default "$VIRTHUALENV_NAME"
   fi
 
+  if [ -n "$SANDBOXER_BOX" ]; then
+    print-with-colors $normal $green   " cabal:"
+    print-with-colors $bold   $default "$SANDBOXER_BOX"
+  fi
+
   echo
 }
 
