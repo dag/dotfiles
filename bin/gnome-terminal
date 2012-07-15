@@ -1,1 +1,2 @@
+#!/bin/bash
 XDG_CONFIG_HOME=$HOME/.gtk-application-prefer-dark-theme /usr/bin/gnome-terminal "$@"
