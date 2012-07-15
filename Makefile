@@ -1,6 +1,6 @@
 PREFIX = $(HOME)
 
-all: bash darcs git vim
+all: bash darcs git gtk vim
 
 .PHONY: bash
 bash:
@@ -18,6 +18,11 @@ git:
 	mkdir -p "$(PREFIX)/.local/bin"
 	curl http://defunkt.io/hub/standalone -sLo "$(PREFIX)/.local/bin/hub"
 	chmod +x "$(PREFIX)/.local/bin/hub"
+
+.PHONY: gtk
+gtk:
+	ln -bs "$(PWD)/.gtk-application-prefer-dark-theme" "$(PREFIX)"
+	ln -bs "$(PWD)/bin/gnome-terminal" "$(PREFIX)/.local/bin"
 
 .PHONY: vim
 vim:
