@@ -22,6 +22,8 @@ Bundle 'renamer.vim'
 
 Bundle 'Bogdanp/quicksilver.vim'
 Bundle 'godlygeek/tabular'
+Bundle 'kana/vim-textobj-indent'
+Bundle 'kana/vim-textobj-user'
 Bundle 'kien/ctrlp.vim'
 Bundle 'mileszs/ack.vim'
 Bundle 'scrooloose/nerdtree'

@@ -288,6 +288,9 @@ let g:haskell_autotags         = 1
 let g:haskell_tags_generator   = 'hasktags'
 let g:hpaste_author            = 'donri'
 
+let g:syntastic_haskell_checker_args =
+  \ '--hlintOpt="--language=XmlSyntax" --ghcOpt="-fno-warn-name-shadowing"'
+
 " }}} Haskell
 
 " Shellscript {{{
