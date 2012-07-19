@@ -6,3 +6,4 @@
 .vim/bundle
 .darcs/cache
 mod
+bin/hub

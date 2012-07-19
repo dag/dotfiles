@@ -20,12 +20,15 @@ darcs:
 dircolors: mod/dircolors-solarized/dircolors.ansi-dark
 	ln -bs "$(PWD)/$<" "$(PREFIX)/.dir_colors"
 
+bin/hub:
+	curl http://defunkt.io/hub/standalone -sLo $@
+	chmod +x $@
+
 .PHONY: git
-git:
-	ln -bs "$(PWD)/.gitconfig" "$(PREFIX)"
+git: bin/hub
 	mkdir -p "$(PREFIX)/.local/bin"
-	curl http://defunkt.io/hub/standalone -sLo "$(PREFIX)/.local/bin/hub"
-	chmod +x "$(PREFIX)/.local/bin/hub"
+	ln -bs "$(PWD)/$<" "$(PREFIX)/.local/bin"
+	ln -bs "$(PWD)/.gitconfig" "$(PREFIX)"
 
 .PHONY: gtk
 gtk:
