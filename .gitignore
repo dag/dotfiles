@@ -5,5 +5,4 @@
 .bash/sandboxer.sh
 .vim/bundle
 .darcs/cache
-mod
 bin/hub
