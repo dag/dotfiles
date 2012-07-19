@@ -35,11 +35,13 @@ gtk:
 mkv:
 	ln -bs "$(PWD)/bin/mkvretitle" "$(PREFIX)/.local/bin"
 
+vundle/README.md:
+	git submodule update --init
+
 .PHONY: vim
-vim:
+vim: vundle/README.md
 	mkdir -p .vim/bundle
-	test -d .vim/bundle/vundle \
-	  || git clone git://github.com/gmarik/vundle.git .vim/bundle/vundle
+	ln -bs "$(PWD)/vundle .vim/bundle
 	ln -bs "$(PWD)/.vimrc" "$(PREFIX)"
 	ln -bs "$(PWD)/.gvimrc" "$(PREFIX)"
 	ln -bs "$(PWD)/.vim" "$(PREFIX)"
