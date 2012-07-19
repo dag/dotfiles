@@ -16,7 +16,8 @@ runtime vundle.vim
 if !has('gui_running')
   let g:solarized_termcolors = 16
   let g:solarized_termtrans = 1
-  set background=light
+  set t_Co=16
+  set background=dark
   colorscheme solarized
 endif
 
