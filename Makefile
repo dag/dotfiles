@@ -1,6 +1,6 @@
 PREFIX = $(HOME)
 
-all: bash darcs git gtk mkv vim
+all: bash darcs dircolors git gtk mkv vim
 
 .PHONY: bash
 bash:
@@ -11,6 +11,13 @@ bash:
 .PHONY: darcs
 darcs:
 	ln -bs "$(PWD)/.darcs" "$(PREFIX)"
+
+dircolors-solarized/dircolors.ansi-dark:
+	git submodule update --init
+
+.PHONY: dircolors
+dircolors: dircolors-solarized/dircolors.ansi-dark
+	ln -bs "$(PWD)/$<" "$(PREFIX)/.dir_colors"
 
 .PHONY: git
 git:
