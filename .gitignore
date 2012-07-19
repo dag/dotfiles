@@ -1,7 +1,8 @@
 .*.sw?
 .swp
-.*.*~
+*~
 .bash/private.sh
 .bash/sandboxer.sh
 .vim/bundle
 .darcs/cache
+mod

@@ -1,9 +1,9 @@
-[submodule "dircolors-solarized"]
-	path = dircolors-solarized
-	url = git://github.com/seebi/dircolors-solarized.git
-[submodule "vundle"]
-	path = vundle
-	url = git://github.com/gmarik/vundle.git
-[submodule "sandboxer"]
-	path = sandboxer
+[submodule "mod/sandboxer"]
+	path = mod/sandboxer
 	url = git://github.com/veinor/sandboxer.git
+[submodule "mod/vundle"]
+	path = mod/vundle
+	url = git://github.com/gmarik/vundle.git
+[submodule "mod/dircolors-solarized"]
+	path = mod/dircolors-solarized
+	url = git://github.com/seebi/dircolors-solarized.git

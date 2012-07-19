@@ -2,11 +2,11 @@ PREFIX = $(HOME)
 
 all: bash darcs dircolors git gtk mkv vim
 
-sandboxer/sandboxer.sh:
+mod/%:
 	git submodule update --init
 
 .PHONY: bash
-bash: sandboxer/sandboxer.sh
+bash: mod/sandboxer/sandboxer.sh
 	ln -bs "$(PWD)/$<" .bash
 	ln -bs "$(PWD)/.inputrc" "$(PREFIX)"
 	ln -bs "$(PWD)/.bashrc" "$(PREFIX)"
@@ -16,11 +16,8 @@ bash: sandboxer/sandboxer.sh
 darcs:
 	ln -bs "$(PWD)/.darcs" "$(PREFIX)"
 
-dircolors-solarized/dircolors.ansi-dark:
-	git submodule update --init
-
 .PHONY: dircolors
-dircolors: dircolors-solarized/dircolors.ansi-dark
+dircolors: mod/dircolors-solarized/dircolors.ansi-dark
 	ln -bs "$(PWD)/$<" "$(PREFIX)/.dir_colors"
 
 .PHONY: git
@@ -39,13 +36,10 @@ gtk:
 mkv:
 	ln -bs "$(PWD)/bin/mkvretitle" "$(PREFIX)/.local/bin"
 
-vundle/README.md:
-	git submodule update --init
-
 .PHONY: vim
-vim: vundle/README.md
+vim: mod/vundle/README.md
 	mkdir -p .vim/bundle
-	ln -bs "$(PWD)/vundle .vim/bundle
+	ln -bs "$(PWD)/mod/vundle" .vim/bundle
 	ln -bs "$(PWD)/.vimrc" "$(PREFIX)"
 	ln -bs "$(PWD)/.gvimrc" "$(PREFIX)"
 	ln -bs "$(PWD)/.vim" "$(PREFIX)"
