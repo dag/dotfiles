@@ -1,6 +1,6 @@
 PREFIX = $(HOME)
 
-all: bash darcs dircolors git gtk mkv vim
+all: bash darcs dircolors git gnome-terminal mkv vim
 
 mod/%:
 	git submodule update --init
@@ -30,8 +30,9 @@ git: bin/hub
 	ln -bs "$(PWD)/$<" "$(PREFIX)/.local/bin"
 	ln -bs "$(PWD)/.gitconfig" "$(PREFIX)"
 
-.PHONY: gtk
-gtk:
+.PHONY: gnome-terminal
+gnome-terminal: mod/gnome-terminal-colors-solarized/set_dark.sh
+	./$<
 	ln -bs "$(PWD)/.gtk-application-prefer-dark-theme" "$(PREFIX)"
 	ln -bs "$(PWD)/bin/gnome-terminal" "$(PREFIX)/.local/bin"
 
