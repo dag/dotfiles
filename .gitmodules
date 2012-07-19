@@ -4,3 +4,6 @@
 [submodule "vundle"]
 	path = vundle
 	url = git://github.com/gmarik/vundle.git
+[submodule "sandboxer"]
+	path = sandboxer
+	url = git://github.com/veinor/sandboxer.git

@@ -2,8 +2,12 @@ PREFIX = $(HOME)
 
 all: bash darcs dircolors git gtk mkv vim
 
+sandboxer/sandboxer.sh:
+	git submodule update --init
+
 .PHONY: bash
-bash:
+bash: sandboxer/sandboxer.sh
+	ln -bs "$(PWD)/$<" .bash
 	ln -bs "$(PWD)/.inputrc" "$(PREFIX)"
 	ln -bs "$(PWD)/.bashrc" "$(PREFIX)"
 	ln -bs "$(PWD)/.bash" "$(PREFIX)"
