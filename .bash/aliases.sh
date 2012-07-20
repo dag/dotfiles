@@ -60,6 +60,7 @@ alias rm='trash-put'
 
 hash ack-grep &>/dev/null && alias ack='ack-grep'
 hash pip-python &>/dev/null && alias pip='pip-python'
+hash vimx &>/dev/null && alias vim='vimx'
 
 function use-ghc-7.4.1 {
   source ~/.virthualenv/7.4.1/.virthualenv/bin/activate
