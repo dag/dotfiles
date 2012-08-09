@@ -1,6 +1,6 @@
 " GUI {{{
 
-let &guifont = 'Monofur 12'
+let &guifont = 'monofur 12'
 set guioptions=aceg
 set guiheadroom=0
 
@@ -10,7 +10,7 @@ set guiheadroom=0
 " Colorscheme {{{
 
 set background=light
-colorscheme vylight
+colorscheme neutron
 
 " }}} Colorscheme
 
