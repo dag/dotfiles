@@ -3,6 +3,7 @@
 *~
 .bash/private.sh
 .bash/sandboxer.sh
+.bash/kibr.sh
 .vim/bundle
 .darcs/cache
 bin/hub
