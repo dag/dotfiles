@@ -291,7 +291,7 @@ let g:haskell_tags_generator   = 'hasktags'
 let g:hpaste_author            = 'donri'
 
 let g:syntastic_haskell_checker_args =
-  \ '--hlintOpt="--language=XmlSyntax" --ghcOpt="-fno-warn-name-shadowing"'
+  \ '--hlintOpt="--language=XmlSyntax" --hlintOpt="--ignore=Use import/export shortcut" --ghcOpt="-fno-warn-name-shadowing"'
 
 " }}} Haskell
 
