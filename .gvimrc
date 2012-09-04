@@ -1,6 +1,6 @@
 " GUI {{{
 
-let &guifont = 'monofur 12'
+let &guifont = 'Monospace'
 set guioptions=aceg
 set guiheadroom=0
 
@@ -9,8 +9,8 @@ set guiheadroom=0
 
 " Colorscheme {{{
 
-set background=light
-colorscheme neutron
+set background=dark
+colorscheme vydark
 
 " }}} Colorscheme
 
@@ -18,6 +18,7 @@ colorscheme neutron
 " Settings {{{
 
 set relativenumber
+set numberwidth=5
 set foldcolumn=1
 
 " }}} Settings
@@ -34,6 +35,11 @@ augroup Focus
   auto BufWinEnter,WinEnter,FocusGained,WinLeave,FocusLost
     \ * if &buftype !=# ''
     \ |   setlocal nonumber norelativenumber foldcolumn=0
+    \ | endif
+
+  auto BufWinEnter
+    \ * if &buftype ==# 'quickfix'
+    \ |   setlocal wrap
     \ | endif
 augroup END
 
