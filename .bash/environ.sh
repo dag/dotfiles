@@ -24,7 +24,7 @@ export PROJECT_HOME="$HOME/Code"
 export PIP_VIRTUALENV_BASE="$HOME/.virtualenvs"
 
 export LESS="FRX"
-export EDITOR="gvim -f"
+export EDITOR="vim"
 export VISUAL="$EDITOR"
 export BROWSER="xdg-open"
 
