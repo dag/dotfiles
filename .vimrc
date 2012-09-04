@@ -252,12 +252,15 @@ set smartcase
 
 " Plugins {{{
 
-let g:ctrlp_custom_ignore            = '\v%(\.git|_darcs|cabal-dev|dist|state|tags)$'
-let g:ctrlp_working_path_mode        = 0
-let g:syntastic_enable_highlighting  = 0
-let g:syntastic_stl_format           = '%E{ E:%fe }'
-let g:UltiSnipsDontReverseSearchPath = 1
-let NERDTreeIgnore                   = [g:ctrlp_custom_ignore]
+let g:ctrlp_custom_ignore             = '\v%(\.git|_darcs|cabal-dev|dist|state|tags)$'
+let g:ctrlp_working_path_mode         = 0
+let g:cumino_default_terminal         = '/usr/bin/gnome-terminal'
+let g:neocomplcache_enable_at_startup = 1
+let g:Powerline_symbols               = 'fancy'
+let g:syntastic_enable_highlighting   = 0
+let g:syntastic_stl_format            = '%E{ E:%fe }'
+let g:UltiSnipsDontReverseSearchPath  = 1
+let NERDTreeIgnore                    = [g:ctrlp_custom_ignore]
 
 let &statusline = join([
   \ '%<%f %h%m%r',
