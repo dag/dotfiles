@@ -36,11 +36,11 @@ let g:SuperTabDefaultCompletionType = "context"
 
 sign define SyntasticError
   \ text=»» texthl=Error
-  \ icon=/home/dag/.icons/Faience/status/scalable/dialog-error-symbolic.svg
+  \ icon=/home/dag/.icons/Faenza/status/scalable/dialog-error.svg
 
 sign define SyntasticWarning
   \ text=»» texthl=Todo
-  \ icon=/home/dag/.icons/Faience/status/scalable/dialog-information-symbolic.svg
+  \ icon=/home/dag/.icons/Faenza/status/scalable/dialog-warning.svg
 
 " }}}
 
