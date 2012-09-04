@@ -174,7 +174,7 @@ nnoremap <leader>et :NERDTreeToggle ~/.vim<cr>
 
 call togglebg#map('<F5>')
 
-nnoremap <silent> <F9> :write \| make \| vertical cwindow 80<cr>
+nnoremap <silent> <F9> :write \| make \| cwindow<cr>
 
 nnoremap gt <C-]>
 
