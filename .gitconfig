@@ -6,24 +6,24 @@ email = dag.odenhall@gmail.com
 ui = auto
 
 [core]
-editor = gvim --nofork
+editor = vim
 excludesfile = ~/.gitignore
 
 [alias]
 au = add --update
-bc = branch
-br = browse
-cf = config --global
+br = branch
+cfg = config --global
 ci = commit
 cl = clone
 co = checkout
 dc = diff --cached
 di = diff
-ed = commit --amend --allow-empty-message
-he = help
-lg = log
+ed = commit --amend
+h = help
+hub = browse
+l = log --graph --decorate --pretty=oneline --abbrev-commit
 mr = merge
-pl = pull
+pl = pull --rebase
 ps = push
 rb = rebase
 re = remote
@@ -31,5 +31,4 @@ ri = rebase -i
 rs = reset --hard HEAD
 rv = revert
 sh = show
-sl = log --graph --decorate --pretty=oneline --abbrev-commit
 st = status
