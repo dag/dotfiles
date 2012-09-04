@@ -309,16 +309,14 @@ let g:sh_fold_enabled = 1
 
 augroup Workarounds
   auto!
-  auto ColorScheme * filetype detect
-  auto ColorScheme * highlight! link CursorLineNr LineNr
-  auto ColorScheme * highlight! link Directory Typedef
-  auto ColorScheme * highlight! link FoldColumn LineNr
-  auto ColorScheme * highlight! link Folded FoldColumn
-  auto ColorScheme * highlight! link SignColumn Normal
-  auto ColorScheme * highlight! link Conceal Operator
-  auto ColorScheme * highlight! link NonText Comment
-  auto ColorScheme * highlight! link Todo Comment
-  auto ColorScheme * highlight! link MatchParen CursorColumn
+  auto ColorScheme
+    \ * filetype detect
+    \ | highlight! link CursorLineNr LineNr
+    \ | highlight! link Directory Typedef
+    \ | highlight! link FoldColumn Folded
+    \ | highlight! link SignColumn FoldColumn
+    \ | highlight! link Conceal Operator
+    \ | highlight! Normal guibg=#222222
 augroup END
 
 " }}} Workarounds
