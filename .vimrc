@@ -178,6 +178,9 @@ nnoremap <silent> <F9> :write \| make \| cwindow<cr>
 
 nnoremap gt <C-]>
 
+nmap <leader>s vii:sort i<cr>
+vnoremap <leader>s :sort i<cr>
+
 " }}} Various
 
 " }}} Mappings
