@@ -2,7 +2,7 @@ ALL test
 diff diff-command colordiff -Nur %1 %2
 diff no-pause-for-gui
 get lazy
-log last 10
+log max-count 10
 log number
 log reverse
 log verbose
