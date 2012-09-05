@@ -181,6 +181,12 @@ nnoremap gt <C-]>
 nmap <leader>s vii:sort i<cr>
 vnoremap <leader>s :sort i<cr>
 
+function! AlignByCurrentSymbol() " {{{
+  execute 'Tabularize /\V\s\zs' . escape(expand('<cWORD>'), '\') . '\ze\s/'
+endfunction " }}}
+
+nnoremap <silent> <leader>c :call AlignByCurrentSymbol()<cr>
+
 " }}} Various
 
 " }}} Mappings
