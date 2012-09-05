@@ -223,6 +223,7 @@ set undofile
 
 " Interface {{{
 
+set concealcursor=nvic
 set fillchars=
 set laststatus=2
 set listchars=eol:¶,tab:»—,trail:!
