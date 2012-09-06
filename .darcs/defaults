@@ -1,7 +1,5 @@
-ALL sendmail-command msmtp -t %<
 ALL test
 apply interactive
-apply verbose
 diff diff-command colordiff -Nur %1 %2
 diff no-pause-for-gui
 get lazy
@@ -9,4 +7,4 @@ log max-count 10
 log number
 log reverse
 log verbose
-pull verbose
+send sendmail-command msmtp -t %<

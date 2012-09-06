@@ -1,7 +1,5 @@
 #!/bin/bash
 
-export EMAIL="dag.odenhall@gmail.com"
-
 export TERM="xterm-256color"
 
 eval "$(dircolors -b)"
@@ -31,3 +29,4 @@ export BROWSER="xdg-open"
 export XDG_CONFIG_HOME="$HOME/.config"
 
 export DARCS_DO_COLOR_LINES=1
+export DARCS_ALWAYS_COLOR=1
