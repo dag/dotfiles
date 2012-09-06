@@ -21,6 +21,7 @@ Bundle 'L9'
 Bundle 'renamer.vim'
 
 Bundle 'adinapoli/cumino'
+Bundle 'bitc/vim-hdevtools'
 Bundle 'Bogdanp/quicksilver.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'kana/vim-textobj-indent'
