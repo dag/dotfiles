@@ -3,11 +3,8 @@ Bundle 'gmarik/vundle'
 
 " Colorschemes {{{
 
-Bundle 'aerosol/vim-compot'
 Bundle 'altercation/vim-colors-solarized'
-Bundle 'djjcast/mirodark'
 Bundle 'neutron.vim'
-Bundle 'noahfrederick/Hemisu'
 Bundle 'vydark'
 Bundle 'vylight'
 
