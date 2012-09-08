@@ -17,8 +17,6 @@ Bundle 'FuzzyFinder'
 Bundle 'L9'
 Bundle 'renamer.vim'
 
-Bundle 'adinapoli/cumino'
-Bundle 'bitc/vim-hdevtools'
 Bundle 'Bogdanp/quicksilver.vim'
 Bundle 'godlygeek/tabular'
 Bundle 'kana/vim-textobj-indent'
@@ -46,6 +44,8 @@ Bundle 'tpope/vim-unimpaired'
 
 " Filetypes {{{
 
+Bundle 'adinapoli/cumino'
+Bundle 'bitc/vim-hdevtools'
 Bundle 'eagletmt/ghcmod-vim'
 Bundle 'hallison/vim-markdown'
 Bundle 'ujihisa/neco-ghc'
