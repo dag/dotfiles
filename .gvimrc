@@ -1,6 +1,6 @@
 " GUI {{{
 
-let &guifont = 'Monospace'
+let &guifont = 'Source Code Pro 9'
 set guioptions=aceg
 set guiheadroom=0
 
@@ -9,8 +9,8 @@ set guiheadroom=0
 
 " Colorscheme {{{
 
-set background=dark
-colorscheme vydark
+set background=light
+colorscheme Tomorrow
 
 " }}} Colorscheme
 
@@ -19,7 +19,7 @@ colorscheme vydark
 
 set relativenumber
 set numberwidth=5
-set foldcolumn=1
+set foldcolumn=3
 
 " }}} Settings
 
@@ -36,6 +36,8 @@ augroup Focus
     \ * if &buftype !=# ''
     \ |   setlocal nonumber norelativenumber foldcolumn=0
     \ | endif
+
+  auto FileType qf setlocal nonumber norelativenumber foldcolumn=0
 
   auto BufWinEnter
     \ * if &buftype ==# 'quickfix'

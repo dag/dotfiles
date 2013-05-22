@@ -18,7 +18,7 @@ cl = clone
 co = checkout
 dc = diff --cached
 di = diff
-ed = commit --amend
+ed = commit --amend --reuse-message=HEAD
 h = help
 hub = browse
 l = log --graph --decorate --pretty=oneline --abbrev-commit

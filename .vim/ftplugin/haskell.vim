@@ -6,6 +6,7 @@ nnoremap <buffer> <silent> <leader>hc :Tabularize haskell_comments<cr>
 vnoremap <buffer> <silent> <leader>hc :Tabularize haskell_comments<cr>
 
 setlocal omnifunc=necoghc#omnifunc
+setlocal formatprg=stylish-haskell
 
 nnoremap <buffer> <silent> <leader>gt :HdevtoolsType<cr>
 nnoremap <buffer> <silent> <leader>gc :HdevtoolsClear<cr>

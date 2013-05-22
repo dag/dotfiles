@@ -1,3 +1,6 @@
-^cabal-dev($|/)
-^dist(/|$)
-^state(/|$)
+(^|/)tags$
+(^|/)cabal-dev($|/)
+(^|/)dist(/|$)
+(^|/)\.cumino\.buff$
+\..*\.swp$
+\..*\.un~$

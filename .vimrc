@@ -54,7 +54,7 @@ nnoremap <silent> <leader>tsp :setlocal spell!<CR>
 nnoremap <silent> <leader>tcu :setlocal cursorline! cursorcolumn!<CR>
 nnoremap <silent> <leader>tnu :call toggle#relativenumber()<CR>
 nnoremap <silent> <leader>tsy :SyntasticToggleMode<CR>
-nnoremap <silent> <leader>tne :NERDTreeToggle<CR>
+nnoremap <silent> <F9> :NERDTreeToggle<CR>
 nnoremap <silent> <leader>tli :setlocal wrap! list!<CR>
 
 " }}} Toggles
@@ -157,7 +157,30 @@ nnoremap <silent> sr     :FufRenewCache<CR>
 
 " }}} FuzzyFinder
 
+" Configuring Vim {{{
+
+nnoremap <F6> :vsplit $MYVIMRC<CR>
+nnoremap <C-F6> :vsplit $MYGVIMRC<CR>
+nnoremap <S-F6> :vsplit ~/.vim/vundle.vim<cr>
+nnoremap <C-S-F6> :NERDTreeToggle ~/.vim<cr>
+
+" }}} Configuring Vim
+
+" Fold Navigation {{{
+
+nnoremap <m-h> zc
+nnoremap <m-j> zj
+nnoremap <m-k> zk
+nnoremap <m-l> zo
+
+" }}} Fold Navigation
+
 " Various {{{
+
+nnoremap ; :
+vnoremap ; :
+nnoremap : ;
+vnoremap ; :
 
 vnoremap <c-right> :s/^\s*\zs/ /<cr>:nohl<cr>gv
 vnoremap <c-left> :s/^\s*\zs\s//<cr>:nohl<cr>gv
@@ -167,14 +190,7 @@ nnoremap <leader>gs :Gstatus<cr>
 nnoremap <leader>a :Tabularize<space>
 vnoremap <leader>a :Tabularize<space>
 
-nnoremap <leader>ev :split $MYVIMRC<cr>
-nnoremap <leader>eg :split $MYGVIMRC<cr>
-nnoremap <leader>eb :split ~/.vim/vundle.vim<cr>
-nnoremap <leader>et :NERDTreeToggle ~/.vim<cr>
-
-call togglebg#map('<F5>')
-
-nnoremap <silent> <F9> :write \| make \| cwindow<cr>
+nnoremap <silent> <F5> :write \| make \| cwindow<cr>
 
 nnoremap gt <C-]>
 
@@ -218,12 +234,14 @@ set autowriteall
 set confirm
 set hidden
 set keywordprg=:help
+set maxmempattern=2000000
 set modeline
 set mouse=a
 set path+=bin
 set path+=src
 set path+=test
 set undofile
+set virtualedit=block
 
 " }}} Behavior
 
@@ -234,6 +252,7 @@ set laststatus=2
 set listchars=eol:¶,tab:»—,trail:!
 set ruler
 set scrolloff=3
+set shortmess+=I
 set showcmd
 
 let g:changelog_spacing_errors = 0
@@ -261,11 +280,13 @@ set smartcase
 
 " Plugins {{{
 
+let g:ackprg                          = 'ag --nogroup --nocolor --column'
 let g:ctrlp_custom_ignore             = '\v%(\.git|_darcs|cabal-dev|dist|state|tags)$'
 let g:ctrlp_working_path_mode         = 0
 let g:cumino_default_terminal         = '/usr/bin/gnome-terminal'
 let g:neocomplcache_enable_at_startup = 1
 let g:Powerline_symbols               = 'fancy'
+let g:syntastic_check_on_open         = 1
 let g:syntastic_enable_highlighting   = 0
 let g:syntastic_stl_format            = '%E{ E:%fe }'
 let g:UltiSnipsDontReverseSearchPath  = 1
@@ -296,14 +317,17 @@ let python_space_error_highlight = 1
 
 " Haskell {{{
 
-let g:haddock_browser          = 'xdg-open'
-let g:haskell_conceal_wide     = 1
-let g:haskell_autotags         = 1
-let g:haskell_tags_generator   = 'hasktags'
-let g:hpaste_author            = 'donri'
+let g:ghcmod_ghc_options     = ['-fno-code']
+let g:haddock_browser        = 'xdg-open'
+let g:haskell_autotags       = 1
+let g:haskell_conceal_wide   = 0
+let g:haskell_tags_generator = 'hasktags'
+let g:hdevtools_options      = '-g-fno-code'
+let g:hpaste_author          = 'donri'
 
 let g:syntastic_haskell_checker_args =
-  \ '--hlintOpt="--language=XmlSyntax" --hlintOpt="--ignore=Use import/export shortcut" --ghcOpt="-fno-warn-name-shadowing"'
+  \ '-h-XXmlSyntax -h-i"Use import/export shortcut" -h--cpp-include=include -g-Iinclude -g-fno-warn-name-shadowing -g-fno-code -g-ibench:bin:src:test'
+
 
 " }}} Haskell
 
@@ -314,6 +338,12 @@ let g:sh_fold_enabled = 1
 
 " }}} Shellscript
 
+" Rust {{{
+
+let g:no_rust_conceal = 1
+
+" }}} Rust
+
 " }}} Settings
 
 
@@ -323,12 +353,13 @@ augroup Workarounds
   auto!
   auto ColorScheme
     \ * filetype detect
-    \ | highlight! link CursorLineNr LineNr
-    \ | highlight! link Directory Typedef
-    \ | highlight! link FoldColumn Folded
     \ | highlight! link SignColumn FoldColumn
-    \ | highlight! link Conceal Operator
-    \ | highlight! Normal guibg=#222222
+
+    " \ | highlight! link CursorLineNr LineNr
+    " \ | highlight! link FoldColumn Folded
+    " \ | highlight! link Folded LineNr
+    " \ | highlight! link Directory Typedef
+    " \ | highlight! link Conceal Operator
 augroup END
 
 " }}} Workarounds
